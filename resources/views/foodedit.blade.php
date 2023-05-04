@@ -32,7 +32,7 @@
                         <!--<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-1">-->
                         <!--今日のこんだて-->
                         <!--</label>-->
-                        <!--<input name="food" id="text-box" class="appearance-none block w-full text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="">-->
+                        <input name="food" id="text-box" class="appearance-none block w-full text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="">
                         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
                          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
                          <script src="https://kit.fontawesome.com/de653d534a.js" crossorigin="anonymous"></script>

@@ -38,6 +38,13 @@
                         {{ __('体温登録') }}
                     </x-nav-link>
                 </div>
+            
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex {{ request()->is('foodlist') ? 'bg-custom-pink text-black' : '' }} px-4 rounded-md text-xl font-bold hover:bg-custom-hover-pink items-center justify-center">
+                     <i class="material-icons md-48" id="face">face</i>
+                     <x-nav-link :href="url('foodlist')" :active="request()->is('foodlist')">
+                        {{ __('食事登録') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->

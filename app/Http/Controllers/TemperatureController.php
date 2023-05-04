@@ -82,7 +82,7 @@ return redirect()->route('temperature.edit', ['people_id' => $person->id]);
     $person = Person::findOrFail($id);
     $temperatures = $person->temperatures;
 
-    return view('temperaturelist', compact('temperatures'));
+    return view('people', compact('temperatures'));
     
     // $temperature = Temperature::findOrFail($id);
 

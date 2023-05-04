@@ -74,10 +74,57 @@ class FoodController extends Controller
      * @param  \App\Models\Food  $food
      * @return \Illuminate\Http\Response
      */
-    public function show(Food $food)
-    {
-        //
-    }
+    public function show($id)
+{
+    
+    $person = Person::findOrFail($id);
+    $foods = $person->foods;
+//     // $foods = $person->foods;
+//     // $foods = Food::where('people_id', $people_id)->get();
+
+//     return view('people', compact('staple_foods'));
+    return view('people', compact('foods'));
+}
+
+// public function show($id)
+// {
+//     $person = Person::findOrFail($id);
+//     $Laststaple_food = null;
+
+//     if (is_countable($person->staple_foods) && count($person->staple_foods) > 0) {
+//         $Laststaple_food = $person->staple_foods->last();
+
+//         if ($Laststaple_food->created_at->diffInHours(now()) >= 6) {
+//             $Laststaple_food = null;
+//         }
+//     }
+
+//     $foods = $person->foods;
+
+//     return view('people', compact('person', 'Laststaple_food', 'foods'));
+// }
+
+
+// public function show($id)
+// {
+//     $person = Person::findOrFail($id);
+//     $staple_food = null;
+//     if (is_countable($person->staple_foods) && count($person->staple_foods) > 0) {
+//         foreach ($person->staple_foods as $staple) {
+//             if ($staple->staple_food) {
+//                 $staple_food = $staple->staple_food;
+//                 $hours_diff = now()->diffInHours($staple_food->created_at);
+//                 if ($hours_diff >= 6) {
+//                     $staple_food = null;
+//                 }
+//                 break;
+//             }
+//         }
+//     }
+//     $foods = $person->foods;
+//     return view('people', compact('person', 'staple_food', 'foods'));
+// }
+
 
     /**
      * Show the form for editing the specified resource.

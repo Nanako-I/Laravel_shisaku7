@@ -177,6 +177,15 @@ class PersonController extends Controller
         // ('people')に$peopleが代入される
     return view('temperaturelist',compact('people'));
 } 
+
+// 食事
+// 登録のルート↓
+    public function showfood(Person $person)
+{
+    $people = Person::all();
+        // ('people')に$peopleが代入される
+    return view('foodlist',compact('people'));
+} 
     //  フォームから送られてきたデータ↓
     public function update(Request $request, Person $person)
     {
@@ -192,6 +201,8 @@ class PersonController extends Controller
         return redirect('/people');
     }
 
+
+    
 public function uploadForm()
     {
         // return view('people');変更↓

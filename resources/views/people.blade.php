@@ -2,7 +2,7 @@
 <x-app-layout>
 
     <!--ヘッダー[START]-->
-   
+
     <!--ヘッダー[END]-->
             
         <!-- バリデーションエラーの表示に使用-->
@@ -72,44 +72,50 @@
     </div>
     
                 <!-- トイレ誘導のためのモーダル -->
-            <!--<div class="modal fixed inset-0 overflow-y-auto">-->
-            <!--      <div class="modal-overlay absolute inset-0 bg-gray-500 opacity-75"></div>-->
-            <!--      <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">-->
-            <!--        <div class="modal-content py-4 text-left px-6">-->
-            <!--          <div class="modal-header flex justify-between items-center">-->
-            <!--            <h5 class="modal-title text-2xl font-bold">トイレ誘導</h5>-->
-            <!--            <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">-->
-            <!--              <span aria-hidden="true">&times;</span>-->
-            <!--            </button>-->
-            <!--          </div>-->
-            <!--          <div class="modal-body py-2">-->
-            <!--            <p class="text-lg">11:30になりましたので、トイレ誘導してください。</p>-->
-            <!--          </div>-->
-            <!--          <div class="modal-footer flex justify-end items-center py-2">-->
-            <!--            <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>-->
-            <!--          </div>-->
-            <!--        </div>-->
-            <!--      </div>-->
-            <!--</div>-->
+            <div class="fixed inset-0 overflow-y-auto hidden" id="myModal">
+                  <!--<div class="modal-overlay absolute inset-0 bg-gray-500 opacity-75"></div>-->
+                  <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+                    <div class="modal-content py-4 text-left px-6">
+                      <div class="modal-header flex justify-between items-center">
+                        <h5 class="modal-title text-2xl font-bold">トイレ誘導</h5>
+                        <!--<button type="button" class="close" data-dismiss="modal" aria-label="閉じる">-->
+                        <!--  <span aria-hidden="true">&times;</span>-->
+                        <!--</button>-->
+                      </div>
+                      <div class="modal-body py-2">
+                        <p class="text-lg">11:30になりましたので、トイレ誘導してください。</p>
+                      </div>
+                      <div class="modal-footer flex justify-end items-center py-2">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="myModal .close">閉じる</button>
+                      </div>
+                    </div>
+                  </div>
+            </div>
 
 
 
     <!-- 現在の本 -->
+    <div class="slider flex flex-row justify-start w-screen overflow-y:auto width:100vw">
+        
     @csrf
                 @if (!is_null($people) && count($people) > 0)
-             <div class="flex flex-wrap justify-center -m-2" style="flex-wrap:wrap">
+             <div class="flex flex-row justify-center tw-flex-row h-150 -m-2">
+
                 @foreach ($people as $person)
                 <!--$person->load('temperatures');-->
-                  <div class="p-2 lg:w-1/5 md:w-1/2 w-full">
+                  <div class="p-2 h-full lg:w-1/5 md:w-1/2 flex">
+
                       <!--<style>-->
                       <!--    .h-50:hover {-->
                       <!--      transform: scale(1.1);-->
                       <!--    }-->
                       <!--  </style>-->
 
-                   <div class="h-50 flex items-center border p-4 rounded-lg bg-my-yellow hover:bg-my-deepyellow">
+                   <div class="slide height:auto  border p-4 w-full md:w-64 lg:w-80 rounded-lg bg-white hover:bg-my-deepyellow">
+                     
 
-                     @if ($person->filename)
+                      <div class="h-30 flex flex-row items-center rounded-lg bg-white width:100vw hover:bg-my-deepyellow">
+                          @if ($person->filename)
                               <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="{{ asset('storage/sample/' . $person->filename) }}">
                             @else
                               <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/80x80">
@@ -123,60 +129,97 @@
                                  </style>
                                         <div class="flex-grow">
                                           <h2 class="h2 text-gray-900 title-font font-bold text-2.5xl" _msttexthash="277030">{{$person->person_name}}</h2>
-                                          <!--<p class="text-gray-900 font-bold text-xl" _msttexthash="150072">{{$person->date_of_birth}}生まれ</p>-->
+                                          <p class="text-gray-900 font-bold text-xs" _msttexthash="150072">{{$person->date_of_birth}}生まれ</p>
                                         </div>
-
+                      </div>
                       
-                   <!-- Load Font Awesome -->
+                   <!-- 食事量登録↓ -->
+                   　　　    <div class="border p-2 rounded-lg bg-white m-2">
+                            <p class="text-gray-900 font-bold text-xs">食事量</p>
+                              <div class="flex items-center justify-center p-4">
+                                <div class="h-50 w-40 border p-4 rounded-lg bg-white mr-4">
+                                  
+                                 
+                            <p>ごはん　完食</p>
+
+                                        @if (!is_null($person) && !empty($person->foods) && count($person->foods) > 0)
+                                           
+                                            @php
+                                              $lastFood = $person->foods->last();
+                                            @endphp
+                                        
+                                            @if ($lastFood->created_at->diffInHours(now()) >= 6)
+                                                <p class="text-red-500 font-bold text-xl">検温してください</p>
+                                            @else
+                                                <a href="{{ route('foods.show', $lastFood->id) }}" class="font-bold text-xl">{{ $lastFood->food }}</a>
+                                            @endif
+                                        
+                                   
+                                        @endif
+    
+                                    
+                                    
+                                 <a href="{{ url('food/'.$person->id.'/edit') }}" class="relative">
+                                     @csrf
+                                        <i class="material-icons md-90 ml-auto">add</i>
+                                </a>
+                                </div>
+                                
+                                
+                                  <div class="h-50 w-40 border p-4 rounded-lg bg-white hover:bg-my-deepyellow mr-4">
+                                    <!-- 2つ目の四角い枠の中身 -->
+                                     <p>ごはん　完食</p>
+                                    <br>
+                                    <p>おかず　完食</p>
+                                  </div>
+                                  <div class="h-50 w-40 border p-4 rounded-lg bg-white hover:bg-my-deepyellow">
+                                    <!-- 3つ目の四角い枠の中身 -->
+                                  </div>
+                              </div>
+                          </div>
                                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
                                         <script src="https://kit.fontawesome.com/de653d534a.js" crossorigin="anonymous"></script>
                                         <a href="{{ url('food/'.$person->id.'/edit') }}" class="relative">
-                                          <i class="fa-solid fa-bowl-rice text-blue-500 hover:text-blue-500" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
-                                             <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-gray-900 px-6 py-2 rounded-lg text-lg font-bold opacity-0 transition-opacity duration-300 border-4 border-lime-600" style="writing-mode: horizontal-tb; width: 200px;">食事量を入力する</span>
-
+                                          
+                                          <!--<i class="fa-solid fa-bowl-rice text-blue-500 hover:text-blue-500" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>-->
+                                            <!--<span class="absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-gray-900 px-6 py-2 rounded-lg text-lg font-bold opacity-0 transition-opacity duration-300 border-4 border-lime-600" style="writing-mode: horizontal-tb; width: 200px;">食事量を入力する</span>-->
                                         </a>
-                                        <style>
-                                          a:hover > i {
-                                            transform: scale(1.5);
-                                          }
-                                          a:hover > span {
-                                            opacity: 1;
-                                            bottom: calc(100% + 10px); /* アイコン真上に表示 */
-                                          }
-                                        </style>
-
-
-
-                                            
-                                        <a href="{{ url('temperature/'.$person->id.'/edit') }}">
-                                        <i class="fa-solid fa-thermometer text-pink-400 hover:text-pink-400" style="font-size: 2em; padding: 0 5px;"></i>
-                                          <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 bg-white text-gray-900 px-6 py-2 rounded-lg text-lg font-bold opacity-0 transition-opacity duration-300 border-4 border-lime-600" style="writing-mode: horizontal-tb; width: 200px;">体温を記入する</span>
                                         
-                                         <style>
-                                          a:hover > i {
-                                            transform: scale(1.5);
-                                          }
-                                          .parent-element {
-                                              position: relative; /* 親要素に相対的な位置を設定 */
-                                            }
-                                            
-                                            a:hover > span {
-                                              position: absolute; /* 絶対的な位置を設定 */
-                                              bottom: calc(100% + 10px); /* アイコン真上に表示 */
-                                              left: 50%; /* アイコンの中心に配置 */
-                                              transform: translateX(-50%); /* アイコンの中心に配置 */
-                                            }
-                                        　</style>
+                        <!-- 体温登録↓ -->
+                        　    　　  <div class="border p-2 rounded-lg bg-white m-2">
+                                      <p class="text-gray-900 font-bold text-xs" _msttexthash="150072">体温</p>
+                                  <div class="flex items-center justify-center p-4">
+                                    
+                                            @if (!is_null($person) && count($person->temperatures) > 0)
+                                            @php
+                                              $lastTemperature = $person->temperatures->last();
+                                            @endphp
+                                        
+                                            @if ($lastTemperature->created_at->diffInHours(now()) >= 6)
+                                                <p class="text-red-500 font-bold text-xl">検温してください</p>
+                                            @else
+                                                <a href="{{ route('temperatures.show', $lastTemperature->id) }}" class="font-bold text-xl">{{ $lastTemperature->temperature }}℃</a>
+                                            @endif
+                                        
+                                    @endif
+                                    
+                                        <a href="{{ url('temperature/'.$person->id.'/edit') }}">
+                                        <!--<i class="fa-solid fa-thermometer text-pink-400 hover:text-pink-400" style="font-size: 2em; padding: 0 5px;"></i>-->
+                                          @csrf
+                                        <i class="material-icons md-90 ml-auto">add</i>
+                                  </div>
+                                </div>
+                                       
                                         <a href="{{ url('toilet/'.$person->id.'/edit') }}">
-                                        <i class="fa-solid fa-toilet-paper text-blue-500 hover:text-blue-500" style="font-size: 2em; padding: 0 5px;"></i>
+                                        <!--<i class="fa-solid fa-toilet-paper text-blue-500 hover:text-blue-500" style="font-size: 2em; padding: 0 5px;"></i>-->
                                         
                                         
                                         
                                         <a href="{{ url('speech/'.$person->id.'/edit') }}">
-                                        <i class="fa-solid fa-volume-high text-orange-400" style="font-size: 2em; padding: 0 5px;"></i>
+                                        <!--<i class="fa-solid fa-volume-high text-orange-400" style="font-size: 2em; padding: 0 5px;"></i>-->
                                         
                                         <a href="{{ url('record/'.$person->id.'/edit') }}">
-                                        <i class="fa-regular fa-clipboard text-green-500" style="font-size: 2em; padding: 0 5px;"></i>
+                                        <!--<i class="fa-regular fa-clipboard text-green-500" style="font-size: 2em; padding: 0 5px;"></i>-->
 <!-- Display an icon -->
       
                       <a href="{{ route('people.edit', ['id' => $person->id]) }}">
@@ -197,7 +240,7 @@
             @endif
 
    
-  <!--</div>-->
+    </div>
 <!--</section>-->
 
 
@@ -214,23 +257,73 @@
 </html>
 
 <script>
-// 11:30になったらモーダルを表示する関数
-function showToiletModal() {
-  // 現在の時刻を取得
-  var currentTime = new Date();
-//   ターゲットの時刻を設定 (11:30になるとモーダルを表示する)
-  var targetTime = new Date();
-  targetTime.setHours(11);
-  targetTime.setMinutes(30);
+var showToiletModal_flg = false;
 
-  // 現在の時刻がターゲットの時刻に達した場合
-  if (currentTime >= targetTime) {
+
+function showToiletModal() {
+  if(!showToiletModal_flg){
+    // 現在の時刻を取得
+    var currentTime = new Date();
+    //11：30になったらモーダル表示させる　ターゲットの時刻を設定 
+    var targetTime_from = new Date();
+    targetTime_from.setHours(11);
+    targetTime_from.setMinutes(30);
+    
+    var targetTime_to = new Date();
+    targetTime_to.setHours(12);
+    targetTime_to.setMinutes(00);
+    
+    
+    // 現在の時刻がターゲットの時刻に達した場合
+    if (currentTime >= targetTime_from && currentTime <= targetTime_to) {
     // モーダルを表示する
-    $('#myModal').modal('show');
+    var myModal = document.getElementById('myModal');
+    myModal.classList.add('show');
+    myModal.style.display = 'block';
+    }
+    
+    var myModal = document.getElementById('myModal'); // モーダル要素を取得
+    // var myModalClose = document.querySelector('#myModal .close'); // 閉じるボタン要素を取得
+    var myModalClose = document.getElementById('myModal .close'); 
+    
+    myModalClose.addEventListener('click', function() {
+      // Bootstrapのモーダルを閉じるメソッドを実行
+      myModal.style.display = 'none';
+      myModal.classList.remove('show');
+      showToiletModal_flg = true;
+    });
   }
 }
 
 // showToiletModal関数を定期的に実行する (例: 1分ごとに実行)
 setInterval(showToiletModal, 60000);
+
+
+const slides = document.querySelectorAll('.slide');
+let currentSlide = 0;
+
+function showSlide(n) {
+  // すべてのスライドを非表示にする
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].classList.remove('active');
+  }
+  // 指定されたスライドを表示する
+  slides[n].classList.add('active');
+  currentSlide = n;
+}
+
+function nextSlide() {
+  // 次のスライドを表示する
+  if (currentSlide === slides.length - 1) {
+    showSlide(0);
+  } else {
+    showSlide(currentSlide + 1);
+  }
+}
+
+
+
+
+
 </script>
 </x-app-layout>

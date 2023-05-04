@@ -76,6 +76,9 @@ Route::get('temperature/{people_id}/edit', [TemperatureController::class, 'edit'
 
 Route::post('temperature/{people_id}/edit', [TemperatureController::class,'store'])->name('temperature.post');
 
+Route::get('foods/{id}', 'FoodController@show')->name('foods.show');
+// Route::get('people/{id}', 'FoodController@show')->name('people.show');
+Route::get('foodlist', [PersonController::class, 'showfood'])->name('foodlist.edit');
 Route::get('food/{people_id}/edit', [FoodController::class, 'edit'])->name('food.edit');
 Route::post('food/{people_id}/edit', [FoodController::class,'store'])->name('food.post');
 
