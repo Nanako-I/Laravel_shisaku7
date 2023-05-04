@@ -10,4 +10,9 @@ class Toilet extends Model
     use HasFactory;
     protected $table = 'toilets';
     protected $fillable = ['people_id','urine_one','urine_two','urine_three','ben_one','ben_one','ben_two','ben_three','filename'];
+    
+    public function person()
+    {
+        return $this->belongsTo(Person::class, 'people_id');
+    }
 }

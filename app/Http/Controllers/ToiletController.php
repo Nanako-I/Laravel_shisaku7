@@ -73,10 +73,18 @@ class ToiletController extends Controller
      * @param  \App\Models\Food  $food
      * @return \Illuminate\Http\Response
      */
-    public function show(Food $food)
-    {
-        //
-    }
+    public function show($id)
+{
+    
+    $person = Person::findOrFail($id);
+    $toilets = $person->toilets;
+
+    return view('people', compact('toilets'));
+    
+    // $temperature = Temperature::findOrFail($id);
+
+    // return view('temperaturelist', compact('temperature'));
+}
 
     /**
      * Show the form for editing the specified resource.

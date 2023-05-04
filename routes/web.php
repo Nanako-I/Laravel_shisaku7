@@ -77,15 +77,19 @@ Route::get('temperature/{people_id}/edit', [TemperatureController::class, 'edit'
 Route::post('temperature/{people_id}/edit', [TemperatureController::class,'store'])->name('temperature.post');
 
 Route::get('foods/{id}', 'FoodController@show')->name('foods.show');
+// Route::get('foods/{id}', 'FoodController@showAmountFood')->name('foods.show');
 // Route::get('people/{id}', 'FoodController@show')->name('people.show');
 Route::get('foodlist', [PersonController::class, 'showfood'])->name('foodlist.edit');
 Route::get('food/{people_id}/edit', [FoodController::class, 'edit'])->name('food.edit');
 Route::post('food/{people_id}/edit', [FoodController::class,'store'])->name('food.post');
 
+
+Route::get('toilets/{id}', 'ToiletController@show')->name('toilets.show');
 Route::get('toilet/{people_id}/edit', [ToiletController::class, 'edit'])->name('toilet.edit');
 Route::post('toilet/{people_id}/edit', [ToiletController::class,'store'])->name('toilet.post');
 // Route::get('people/{id}/edit', [TemperatureController::class, 'index'])->name('temperatures.index');
 
+Route::get('speeches/{id}', 'SpeechController@show')->name('speeches.show');
 Route::get('speech/{people_id}/edit', [SpeechController::class, 'edit'])->name('speech.edit');
 Route::post('speech/{people_id}/edit', [SpeechController::class,'store'])->name('speech.post');
 

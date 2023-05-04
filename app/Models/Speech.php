@@ -10,4 +10,9 @@ class Speech extends Model
     use HasFactory;
     protected $table = 'speech';
     protected $fillable = ['people_id','activity'];
+    
+    public function person()
+    {
+        return $this->belongsTo(Person::class, 'people_id');
+    }
 }

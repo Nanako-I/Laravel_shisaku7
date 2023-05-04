@@ -147,6 +147,11 @@ class PersonController extends Controller
     {
     return view('temperature.'.$person->id.'.edit');//
     }
+    
+    // public function showAmountFood(Person $person)
+    // {
+    // return view('food.'.$person->id.'.edit');//
+    // }
 
     /**
      * Show the form for editing the specified resource.

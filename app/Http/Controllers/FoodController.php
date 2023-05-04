@@ -31,7 +31,7 @@ class FoodController extends Controller
      */
    public function create(Request $request)
 {
-    $person = Person::findOrFail($request->people_id);
+    $person = Food::findOrFail($request->people_id);
     // return redirect()->route('food.edit', ['people_id' => $person->id]);
     // return view('people');
     return view('people', ['people' => Person::all()]);
@@ -63,9 +63,9 @@ class FoodController extends Controller
     ]);
     // return redirect('people/{id}/edit');
    $person = Person::findOrFail($request->people_id);
-    // return redirect()->route('food.edit', ['people_id' => $person->id]); //
+    return redirect()->route('food.edit', ['people_id' => $person->id]); //
     // return view('people');
-    return view('people', ['people' => Person::all()]);
+    // return view('people', ['people' => Person::all()]);
     }
 
     /**
@@ -74,7 +74,7 @@ class FoodController extends Controller
      * @param  \App\Models\Food  $food
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function showFood($id)
 {
     
     $person = Person::findOrFail($id);
@@ -85,6 +85,19 @@ class FoodController extends Controller
 //     return view('people', compact('staple_foods'));
     return view('people', compact('foods'));
 }
+
+
+//  public function showAmountFood($id)
+// {
+    
+//     $person = Person::findOrFail($id);
+//     $foods = $person->foods;
+// //     // $foods = $person->foods;
+// //     // $foods = Food::where('people_id', $people_id)->get();
+
+// //     return view('people', compact('staple_foods'));
+//     return view('people', compact('foods'));
+// }
 
 // public function show($id)
 // {

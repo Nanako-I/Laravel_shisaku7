@@ -16,4 +16,19 @@ class Person extends Model
         return $this->hasMany(Temperature::class,'people_id');
     }
 
+public function foods()
+    {
+        return $this->hasMany(Food::class,'people_id');
+    }
+    
+    public function toilets()
+    {
+        return $this->hasMany(Toilet::class,'people_id');
+    }
+    
+    public function speeches()
+    {
+        return $this->hasMany(Speech::class,'people_id');
+    }
+    
 }

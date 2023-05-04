@@ -72,10 +72,18 @@ class SpeechController extends Controller
      * @param  \App\Models\Speech  $speech
      * @return \Illuminate\Http\Response
      */
-    public function show(Speech $speech)
-    {
-        //
-    }
+    public function show($id)
+{
+    
+    $person = Person::findOrFail($id);
+    $speeches = $person->speeches;
+
+    return view('people', compact('speeches'));
+    
+    // $temperature = Temperature::findOrFail($id);
+
+    // return view('temperaturelist', compact('temperature'));
+}
 
     /**
      * Show the form for editing the specified resource.
