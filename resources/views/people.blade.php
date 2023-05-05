@@ -95,7 +95,7 @@
 
 
     <!-- 現在の本 -->
-  <div class="flex flex-row justify-start w-screen overflow-y:auto width:100vw">
+  <div class="flex flex-row justify-start w-screen overflow-x-auto">
     <div class="slider">
         
     @csrf
@@ -105,15 +105,23 @@
                 @foreach ($people as $person)
                 <!--$person->load('temperatures');-->
                   <div class="p-2 h-full lg:w-1/3 md:w-full flex">
-
-                      <!--<style>-->
-                      <!--    .h-50:hover {-->
-                      <!--      transform: scale(1.1);-->
-                      <!--    }-->
-                      <!--  </style>-->
-
                    <div class="slide height:auto  border p-4 w-full md:w-64 lg:w-100 rounded-lg bg-white hover:bg-my-deepyellow">
+                     <style>
+                      .slide {
+                        width:100vw;
+                      }
+                      @media screen and (min-width: 768px){
+                        .slide {
+                            width:600px;
+                        }
+                      }
+                      @media screen and (min-width: 1024px){
+                        .slide {
+                            width:700px;
+                        }
+                      }
                      
+                     </style>
 
                       <div class="h-30 flex flex-row items-center rounded-lg bg-white width:100vw hover:bg-my-deepyellow">
                           @if ($person->filename)
@@ -140,8 +148,8 @@
                    <!-- 食事量登録↓ -->
                    　　　    <div class="border p-2 rounded-lg bg-white m-2">
                             <p class="text-gray-900 font-bold text-xs">食事量</p>
-                              <div class="flex items-center justify-center p-4">
-                                <div class="h-60 w-40 border p-4 rounded-lg bg-white mr-4">
+                              <div class="flex items-center justify-center p-4 flex-col md:flex-row">
+                                <div class="h-28 md:h-48 w-full md:w-40 border p-4 rounded-lg bg-white md:mr-4">
                                 <!--<div class="flex flex-grow flex-shrink-0 flex-basis-40 border p-4 rounded-lg bg-white mr-4">-->
           
                                     @if (!is_null($person) && !empty($person->foods) && count($person->foods) > 0)
@@ -168,7 +176,7 @@
                                 </div>
                                 
                                   <!--<div class="flex flex-grow flex-shrink-0 flex-basis-40 border p-4 rounded-lg bg-white mr-4">-->
-                                  <div class="h-60 w-40 border p-4 rounded-lg bg-white hover:bg-my-deepyellow mr-4">
+                                   <div class="h-28 md:h-48 w-full md:w-40 border p-4 rounded-lg bg-white mt-4 md:mr-4 md:mt-0">
                                    @if (!is_null($person) && !empty($person->foods) && count($person->foods) > 0)
                                       @php
                                           $lastFood = $person->foods->last();
@@ -192,7 +200,7 @@
                                 </div>
                                 
                                   <!--<div class="flex flex-grow flex-shrink-0 flex-basis-40 border p-4 rounded-lg bg-white mr-4">-->
-                                  <div class="h-50 w-40 border p-4 rounded-lg bg-white hover:bg-my-deepyellow mr-4">
+                                  <div class="h-28 md:h-48 w-full md:w-40 border p-4 rounded-lg bg-white mt-4 md:mt-0">
                                    @if (!is_null($person) && !empty($person->foods) && count($person->foods) > 0)
                                       @php
                                           $lastFood = $person->foods->last();
@@ -318,7 +326,7 @@
                                                     </a>
                                                 @endif
                                             @else
-                                                <p class="text-red-500 font-bold text-xl">登録してください。</p>
+                                                <p class="text-red-500 font-bold text-xl">登録してください</p>
                                                 <a href="{{ url('speech/'.$person->id.'/edit') }}">
                                                     <!--<i class="fa-solid fa-volume-high text-orange-400" style="font-size: 2em; padding: 0 5px;"></i>-->
                                                     @csrf
@@ -328,14 +336,14 @@
                                         </div>
                                     </div>
 
-                                        <a href="{{ url('record/'.$person->id.'/edit') }}">
+                                        <!--<a href="{{ url('record/'.$person->id.'/edit') }}">-->
                                         <!--<i class="fa-regular fa-clipboard text-green-500" style="font-size: 2em; padding: 0 5px;"></i>-->
 <!-- Display an icon -->
       
-                      <a href="{{ route('people.edit', ['id' => $person->id]) }}">
-                        @csrf
-                        <i class="material-icons md-90 ml-auto">add</i>
-                      </a>
+                      <!--<a href="{{ route('people.edit', ['id' => $person->id]) }}">-->
+                      <!--  @csrf-->
+                      <!--  <i class="material-icons md-90 ml-auto">add</i>-->
+                      <!--</a>-->
                     </div>
                   </div>
                 @endforeach
