@@ -63,12 +63,36 @@
     </span>
     <input name="urine_three" type="text" id="urine_three_input" class="w-300 h-10px flex-shrink-0 break-words" placeholder="尿漏れ">
   </div>
+  
+  <div style="display: flex; flex-direction: column; align-items: center;">
+        <h3>尿の色</h3>
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <p class ="text-2.5xl">うすい</p>
+            <p class ="text-2.5xl">⇔</p>
+            <p class ="text-2.5xl">濃い</p>
+        </div>
+    <div style="display: flex; justify-content: center; align-items: center; margin-top: 10px;">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+        <script src="https://kit.fontawesome.com/de653d534a.js" crossorigin="anonymous"></script>
+        <i class="fa-solid fa-droplet text-yellow-200" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+        <script src="https://kit.fontawesome.com/de653d534a.js" crossorigin="anonymous"></script>
+        <i class="fa-solid fa-droplet text-yellow-300" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+        <script src="https://kit.fontawesome.com/de653d534a.js" crossorigin="anonymous"></script>
+        <i class="fa-solid fa-droplet text-yellow-500" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
+    </div>
 </div>
+
+
+
 <div style="display: flex; flex-direction: column;">
  
  
- <div style="display: flex; align-items: center; margin-left: auto; margin-right: auto; max-width: 300px;">
-  <h3>便</h3>
+ <div style="display: flex; align-items: center; margin-left: auto; margin-right: auto; max-width: 300px; my-2;">
+  <h3 class="my-2;">便</h3>
  </div>
   <div style="display: flex; align-items: center; margin-left: auto; margin-right: auto; max-width: 300px;">
     <span class="text-gray-400 text-6xl" onclick="changeColor(this, 'ben_one')">
@@ -86,15 +110,40 @@
     <span class="text-gray-400 text-6xl" onclick="changeColor(this, 'ben_three')">
       <i class="material-icons md-48" id="ben_three_input">check_box</i>
     </span>
-    <input name="ben_three" type="text" id="ben_three" class="w-300 h-10px flex-shrink-0 break-words" placeholder="尿漏れ">
+    <input name="ben_three" type="text" id="ben_three" class="w-300 h-10px flex-shrink-0 break-words" placeholder="付着あり">
   </div>
-    <div style="display: flex; align-items: center; margin-left: auto; margin-right: auto; max-width: 300px;">
+    
+
+  </div>
+  　<div style="display: flex; flex-direction: column; align-items: center; my-2;">
+        <h3>便の色</h3>
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <p class ="text-2.5xl">茶</p>
+            <p class ="text-2.5xl">⇔</p>
+            <p class ="text-2.5xl">黒</p>
+        </div>
+        <div style="display: flex; justify-content: center; align-items: center; margin-top: 10px;">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+            <script src="https://kit.fontawesome.com/de653d534a.js" crossorigin="anonymous"></script>
+            <i class="fa-solid fa-circle text-amber-800" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
+    
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+            <script src="https://kit.fontawesome.com/de653d534a.js" crossorigin="anonymous"></script>
+            <i class="fa-solid fa-circle text-amber-950" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
+    
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+            <script src="https://kit.fontawesome.com/de653d534a.js" crossorigin="anonymous"></script>
+            <i class="fa-solid fa-circle text-black" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
+        </div>
+　　</div>
+
+　　<div style="display: flex; align-items: center; margin-left: auto; margin-right: auto; max-width: 300px;">
      <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg text-lg mr-4">
        送信
      </button>
     </div>
-
-  </div>
+  
+  
         </form>
     <!--右側エリア[START]-->
             <!--<div class="flex-1 text-gray-700 text-left bg-blue-100 px-4 py-2 m-2">-->
