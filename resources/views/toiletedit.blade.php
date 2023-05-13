@@ -67,23 +67,25 @@
   <div style="display: flex; flex-direction: column; align-items: center;">
         <h3>尿の色</h3>
         <div style="display: flex; justify-content: center; align-items: center;">
-            <p class ="text-2.5xl">うすい</p>
-            <p class ="text-2.5xl">⇔</p>
-            <p class ="text-2.5xl">濃い</p>
+            <!--<p class ="text-2.5xl">うすい</p>-->
+            <!--<p class ="text-2.5xl">⇔</p>-->
+            <!--<p class ="text-2.5xl">濃い</p>-->
+            
         </div>
     <div style="display: flex; justify-content: center; align-items: center; margin-top: 10px;">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
         <script src="https://kit.fontawesome.com/de653d534a.js" crossorigin="anonymous"></script>
-        <i class="fa-solid fa-droplet text-yellow-200" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
+        <i class="fa-solid fa-droplet text-yellow-200" id="urine_color_1" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
         
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
         <script src="https://kit.fontawesome.com/de653d534a.js" crossorigin="anonymous"></script>
-        <i class="fa-solid fa-droplet text-yellow-300" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
+        <i class="fa-solid fa-droplet text-yellow-300"  id="urine_color_2" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
         
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
         <script src="https://kit.fontawesome.com/de653d534a.js" crossorigin="anonymous"></script>
-        <i class="fa-solid fa-droplet text-yellow-500" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
+        <i class="fa-solid fa-droplet text-yellow-500"  id="urine_color_3" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
     </div>
+     <input name="urine_color" type="text" id="urine_color_input" class="w-300 h-8px flex-shrink-0 break-words mt-px mb-1.5">
 </div>
 
 
@@ -118,23 +120,24 @@
   　<div style="display: flex; flex-direction: column; align-items: center; my-2;">
         <h3>便の色</h3>
         <div style="display: flex; justify-content: center; align-items: center;">
-            <p class ="text-2.5xl">茶</p>
-            <p class ="text-2.5xl">⇔</p>
-            <p class ="text-2.5xl">黒</p>
+            <!--<p class ="text-2.5xl">白</p>-->
+            <!--<p class ="text-2.5xl">茶</p>-->
+            <!--<p class ="text-2.5xl">黒</p>-->
         </div>
         <div style="display: flex; justify-content: center; align-items: center; margin-top: 10px;">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
             <script src="https://kit.fontawesome.com/de653d534a.js" crossorigin="anonymous"></script>
-            <i class="fa-solid fa-circle text-amber-800" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
+           <i class="fa-solid fa-circle text-gray-300" id="ben_color_1" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+            <script src="https://kit.fontawesome.com/de653d534a.js" crossorigin="anonymous"></script>
+            <i class="fa-solid fa-circle text-amber-800" id="ben_color_2" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
     
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
             <script src="https://kit.fontawesome.com/de653d534a.js" crossorigin="anonymous"></script>
-            <i class="fa-solid fa-circle text-amber-950" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
-    
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-            <script src="https://kit.fontawesome.com/de653d534a.js" crossorigin="anonymous"></script>
-            <i class="fa-solid fa-circle text-black" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
+            <i class="fa-solid fa-circle text-black" id="ben_color_3" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
         </div>
+        <input name="ben_color" type="text" id="ben_color_input" class="w-300 h-8px flex-shrink-0 break-words mt-px mb-1.5">
 　　</div>
 
 　　<div style="display: flex; align-items: center; margin-left: auto; margin-right: auto; max-width: 300px;">
@@ -182,6 +185,45 @@ benTwoIcon.addEventListener('click', () => {
   benTwoIcon.classList.remove('text-gray-400');
   benTwoIcon.classList.add('text-yellow-400');
 });
+
+// 尿の色↓
+const urine_color_1 = document.getElementById("urine_color_1");
+urine_color_1.addEventListener("click", () => {
+const UrinColorInput = document.querySelector('#urine_color_input');
+UrinColorInput.value = 'うすい';
+});
+
+const urine_color_2 = document.getElementById("urine_color_2");
+urine_color_2.addEventListener("click", () => {
+const UrinColorInput = document.querySelector('#urine_color_input');
+UrinColorInput.value = '普通';
+});
+
+const urine_color_3 = document.getElementById("urine_color_3");
+urine_color_3.addEventListener("click", () => {
+const UrinColorInput = document.querySelector('#urine_color_input');
+UrinColorInput.value = '濃い';
+});
+
+// 便の色↓
+const ben_color_1 = document.getElementById("ben_color_1");
+ben_color_1.addEventListener("click", () => {
+const BenColorInput = document.querySelector('#ben_color_input');
+BenColorInput.value = '白';
+});
+
+const ben_color_2 = document.getElementById("ben_color_2");
+ben_color_2.addEventListener("click", () => {
+const BenColorInput = document.querySelector('#ben_color_input');
+BenColorInput.value = '茶色';
+});
+
+const ben_color_3 = document.getElementById("ben_color_3");
+ben_color_3.addEventListener("click", () => {
+const BenColorInput = document.querySelector('#ben_color_input');
+BenColorInput.value = '黒';
+});
+
 
 </script>
 </x-app-layout>

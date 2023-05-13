@@ -154,122 +154,141 @@
                                 <p class="text-green-700 font-bold text-xl ml-2">食事量</p>
                             </div>
                               <div class="flex items-center justify-center p-4 flex-col md:flex-row">
-                                <div class="h-28 md:h-48 w-full md:w-40 border-2 p-4 rounded-lg bg-white md:mr-4">
-                                <!--<div class="flex flex-grow flex-shrink-0 flex-basis-40 border p-4 rounded-lg bg-white mr-4">-->
-                                
-                                    <div class="flex justify-start">
+                                <div class="h-28 md:h-48 w-full md:w-40 border-2 p-4 rounded-lg bg-white mt-4 md:mt-0">
+                                       <div class="flex justify-start ">
                                     <!--<div class="flex flex-grow flex-shrink-0 flex-basis-40 border p-4 rounded-lg bg-white mr-4">-->
                                         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
                                         <script src="https://kit.fontawesome.com/de653d534a.js" crossorigin="anonymous"></script>
-                                        <i class="fa-solid fa-dove text-cyan-500" style="padding: 0 5px;"></i>
-                                    <p class="font-bold text-base text-cyan-500" >朝</p>
+                                            <i class="fa-solid fa-dove text-cyan-500" style="padding: 0 5px;"></i>
+                                        
+                                           <div class="flex-grow">
+                                              
+                                        
+                                           @if (!is_null($person) && !empty($person->foods) && count($person->foods) > 0)
+                                              @php
+                                                  $lastFood = $person->foods->last();
+                                                  $lastFoodTime = $lastFood ? $lastFood->created_at->format('h:i:s A') : null;
+                                              @endphp
+                                          
+                                              @if (is_null($lastFoodTime))
+                                                      　<div class="flex items-center justify-center p-4">
+                                                              <p class="text-red-500 font-bold text-xl">登録して<br>ください</p>
+                                                              <a href="{{ url('food/'.$person->id.'/edit') }}" class="relative  ml-2">
+                                                                 @csrf
+                                                                    <i class="material-icons md-90 ml-auto">add</i>
+                                                              </a>
+                                                    　　</div>
+                                                      @elseif ($lastFoodTime < '18:00:00 PM' || $lastFoodTime > '20:00:00 PM')
+                                                        <div class="flex items-center justify-center p-4">
+                                                          　<p class="text-red-500 font-bold text-xl">登録して<br>ください</p>
+                                                          　<a href="{{ url('food/'.$person->id.'/edit') }}" class="relative  ml-2">
+                                                             @csrf
+                                                             <i class="material-icons md-90 ml-auto">add</i>
+                                                          </a>
+                                                        </div> 
+                                                        @endif
+                                                      @else
+                                                      
+                                                        <div class="flex justify-evenly">
+                                                            <a href="{{ route('foods.show', $lastFood->id) }}" class="font-bold text-xl">
+                                                                <div>
+                                                                    <p class="text-gray-900 font-bold text-sm">主食:</p>
+                                                                    <p class="text-gray-900 font-bold text-xl">{{ $lastFood->staple_food }}</p>
+                                                                </div>
+                                                            </a>
+                                                        
+                                                            <a href="{{ route('foods.show', $lastFood->id) }}" class="font-bold text-xl">
+                                                                <div>
+                                                                    <p class="text-gray-900 font-bold text-sm">副食:</p>
+                                                                    <p class="text-gray-900 font-bold text-xl">{{ $lastFood->side_dish }}</p>
+                                                                </div>
+                                                            </a>
+                                                        
+                                                            <a href="{{ route('foods.show', $lastFood->id) }}" class="font-bold text-xl">
+                                                                <div>
+                                                                    <p class="text-gray-900 font-bold text-sm">服用:</p>
+                                                                    <p class="text-gray-900 font-bold text-xl">{{ $lastFood->medicine == 'yes' ? 'あり' : 'なし' }}</p>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                     @endif
+                                            </div>
+                                        </div>
                                     </div>
-          
-                                    @if (!is_null($person) && !empty($person->foods) && count($person->foods) > 0)
-                                        @php
-                                            $lastFood = $person->foods->last();
-                                            $lastFoodTime = $lastFood ? $lastFood->created_at->format('h:i:s A') : null;
-                                        @endphp
-                                    
-                                        @if (is_null($lastFoodTime))
-                                            <p class="text-red-500 font-bold text-xl">登録してください</p>
-                                        @elseif ($lastFoodTime < '07:00:00 AM' || $lastFoodTime > '09:00:00 AM')
-                                            <p class="text-red-500 font-bold text-xl">AM7:00〜AM9:00の間に登録してください</p>
-                                        @else
-                                            <!--<div class="flex justify-evenly">-->
-                                               <div class="flex justify-evenly">
-                                                    <a href="{{ route('foods.show', $lastFood->id) }}" class="font-bold text-xl">
-                                                        <div>
-                                                            <p class="text-gray-900 font-bold text-sm">主食:</p>
-                                                            <p class="text-gray-900 font-bold text-xl">{{ $lastFood->staple_food }}</p>
-                                                        </div>
-                                                    </a>
-                                                
-                                                    <a href="{{ route('foods.show', $lastFood->id) }}" class="font-bold text-xl">
-                                                        <div>
-                                                            <p class="text-gray-900 font-bold text-sm">副食:</p>
-                                                            <p class="text-gray-900 font-bold text-xl">{{ $lastFood->side_dish }}</p>
-                                                        </div>
-                                                    </a>
-                                                
-                                                    <a href="{{ route('foods.show', $lastFood->id) }}" class="font-bold text-xl">
-                                                        <div>
-                                                            <p class="text-gray-900 font-bold text-sm">服用:</p>
-                                                            <p class="text-gray-900 font-bold text-xl">{{ $lastFood->medicine == 'yes' ? 'あり' : 'なし' }}</p>
-                                                        </div>
-                                                    </a>
-                                                </div>
-
-                                                    @endif
-                                                @endif
-                                                 <a href="{{ url('food/'.$person->id.'/edit') }}" class="relative">
-                                                     @csrf
-                                                    <i class="material-icons md-90 ml-auto">add</i>
-                                                </a>
-                                            <!--</div>-->
-                               
-                                </div>
                                 
                                   <!--<div class="flex flex-grow flex-shrink-0 flex-basis-40 border p-4 rounded-lg bg-white mr-4">-->
-                                   <div class="h-28 md:h-48 w-full md:w-40 border-2 p-4 rounded-lg bg-white mt-4 md:mr-4 md:mt-0">
-                                       <div class="flex justify-start">
+                                   <div class="h-28 md:h-48 w-full md:w-40 border-2 p-4 rounded-lg bg-white mt-4 md:mt-0">
+                                      <div class="flex justify-start ">
                                     <!--<div class="flex flex-grow flex-shrink-0 flex-basis-40 border p-4 rounded-lg bg-white mr-4">-->
-                                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-                                            <script src="https://kit.fontawesome.com/de653d534a.js" crossorigin="anonymous"></script>
-                                                <i class="fa-solid fa-sun text-orange-600" style="padding: 0 5px;"></i>
-                                            <p class="text-gray-900 font-bold text-base text-orange-600">昼</p>
+                                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+                                        <script src="https://kit.fontawesome.com/de653d534a.js" crossorigin="anonymous"></script>
+                                            <i class="fa-solid fa-sun text-orange-600" style="padding: 0 5px;"></i>
+                                        <div class="flex-grow">
+                                              
+                                        
+                                           @if (!is_null($person) && !empty($person->foods) && count($person->foods) > 0)
+                                              @php
+                                                  $lastFood = $person->foods->last();
+                                                  $lastFoodTime = $lastFood ? $lastFood->created_at->format('h:i:s A') : null;
+                                              @endphp
+                                          
+                                             @if (is_null($lastFoodTime))
+                                                      　 <div class="flex items-center justify-center p-4">
+                                                              <p class="text-red-500 font-bold text-xl">登録して<br>ください</p>
+                                                              <a href="{{ url('food/'.$person->id.'/edit') }}" class="relative  ml-2">
+                                                                 @csrf
+                                                                    <i class="material-icons md-90 ml-auto">add</i>
+                                                              </a>
+                                                          
+                                                    　　</div>
+                                                      @elseif ($lastFoodTime < '18:00:00 PM' || $lastFoodTime > '20:00:00 PM')
+                                                          <div class="flex items-center justify-center p-4">
+                                                          　<p class="text-red-500 font-bold text-xl">登録して<br>ください</p>
+                                                    　　　
+                                                          
+                                                          <a href="{{ url('food/'.$person->id.'/edit') }}" class="relative  ml-2">
+                                                             @csrf
+                                                                <i class="material-icons md-90 ml-auto">add</i>
+                                                          </a>
+                                                        </div> 
+                                                        @endif
+                                                      @else
+                                                        <div class="flex justify-evenly">
+                                                            <a href="{{ route('foods.show', $lastFood->id) }}" class="font-bold text-xl">
+                                                                <div>
+                                                                    <p class="text-gray-900 font-bold text-sm">主食:</p>
+                                                                    <p class="text-gray-900 font-bold text-xl">{{ $lastFood->staple_food }}</p>
+                                                                </div>
+                                                            </a>
+                                                        
+                                                            <a href="{{ route('foods.show', $lastFood->id) }}" class="font-bold text-xl">
+                                                                <div>
+                                                                    <p class="text-gray-900 font-bold text-sm">副食:</p>
+                                                                    <p class="text-gray-900 font-bold text-xl">{{ $lastFood->side_dish }}</p>
+                                                                </div>
+                                                            </a>
+                                                        
+                                                            <a href="{{ route('foods.show', $lastFood->id) }}" class="font-bold text-xl">
+                                                                <div>
+                                                                    <p class="text-gray-900 font-bold text-sm">服用:</p>
+                                                                    <p class="text-gray-900 font-bold text-xl">{{ $lastFood->medicine == 'yes' ? 'あり' : 'なし' }}</p>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                     @endif
+                                            </div>
                                         </div>
-                                        
-                                   @if (!is_null($person) && !empty($person->foods) && count($person->foods) > 0)
-                                      @php
-                                          $lastFood = $person->foods->last();
-                                          $lastFoodTime = $lastFood ? $lastFood->created_at->format('h:i:s A') : null;
-                                      @endphp
-                                  
-                                      @if (is_null($lastFoodTime))
-                                          <p class="text-red-500 font-bold text-xl">登録してください</p>
-                                      @elseif ($lastFoodTime < '12:00:00 PM' || $lastFoodTime > '14:00:00 PM')
-                                          <p class="text-red-500 font-bold text-xl">登録してください</p>
-                                      @else
-                                        <div class="flex justify-evenly">
-                                            <a href="{{ route('foods.show', $lastFood->id) }}" class="font-bold text-xl">
-                                                <div>
-                                                    <p class="text-gray-900 font-bold text-sm">主食:</p>
-                                                    <p class="text-gray-900 font-bold text-xl">{{ $lastFood->staple_food }}</p>
-                                                </div>
-                                            </a>
-                                        
-                                            <a href="{{ route('foods.show', $lastFood->id) }}" class="font-bold text-xl">
-                                                <div>
-                                                    <p class="text-gray-900 font-bold text-sm">副食:</p>
-                                                    <p class="text-gray-900 font-bold text-xl">{{ $lastFood->side_dish }}</p>
-                                                </div>
-                                            </a>
-                                        
-                                            <a href="{{ route('foods.show', $lastFood->id) }}" class="font-bold text-xl">
-                                                <div>
-                                                    <p class="text-gray-900 font-bold text-sm">服用:</p>
-                                                    <p class="text-gray-900 font-bold text-xl">{{ $lastFood->medicine == 'yes' ? 'あり' : 'なし' }}</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                      @endif
-                                  @endif
-                                 <a href="{{ url('food/'.$person->id.'/edit') }}" class="relative">
-                                     @csrf
-                                        <i class="material-icons md-90 ml-auto">add</i>
-                                </a>
-                                </div>
-                                
+                                    </div>
                                   <!--<div class="flex flex-grow flex-shrink-0 flex-basis-40 border p-4 rounded-lg bg-white mr-4">-->
                                   <div class="h-28 md:h-48 w-full md:w-40 border-2 p-4 rounded-lg bg-white mt-4 md:mt-0">
-                                      <div class="flex justify-start">
+                                      <div class="flex justify-start ">
                                     <!--<div class="flex flex-grow flex-shrink-0 flex-basis-40 border p-4 rounded-lg bg-white mr-4">-->
                                             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
                                             <script src="https://kit.fontawesome.com/de653d534a.js" crossorigin="anonymous"></script>
                                                 <i class="fa-solid fa-moon text-violet-700" style="padding: 0 5px;"></i>
-                                            <p class="text-gray-900 font-bold text-base text-violet-700">夜</p>
-                                        </div>
+                                            <div class="flex-grow">
+                                            <!--<p class="text-gray-900 font-bold text-base text-violet-700">夜</p>-->
+                                        
                                    @if (!is_null($person) && !empty($person->foods) && count($person->foods) > 0)
                                       @php
                                           $lastFood = $person->foods->last();
@@ -277,9 +296,25 @@
                                       @endphp
                                   
                                       @if (is_null($lastFoodTime))
-                                          <p class="text-red-500 font-bold text-xl">登録してください</p>
+                                      　 <div class="flex items-center justify-center p-4">
+                                          <p class="text-red-500 font-bold text-xl">登録して<br>ください</p>
+                                          <a href="{{ url('food/'.$person->id.'/edit') }}" class="relative  ml-2">
+                                             @csrf
+                                                <i class="material-icons md-90 ml-auto">add</i>
+                                          </a>
+                                          
+                                    　　</div>
                                       @elseif ($lastFoodTime < '18:00:00 PM' || $lastFoodTime > '20:00:00 PM')
-                                          <p class="text-red-500 font-bold text-xl">登録してください</p>
+                                          <div class="flex items-center justify-center p-4">
+                                          　<p class="text-red-500 font-bold text-xl">登録して<br>ください</p>
+                                    　　　
+                                          
+                                          <a href="{{ url('food/'.$person->id.'/edit') }}" class="relative  ml-2">
+                                             @csrf
+                                                <i class="material-icons md-90 ml-auto">add</i>
+                                          </a>
+                                        </div> 
+                                        @endif
                                       @else
                                         <div class="flex justify-evenly">
                                             <a href="{{ route('foods.show', $lastFood->id) }}" class="font-bold text-xl">
@@ -304,11 +339,8 @@
                                             </a>
                                         </div>
                                       @endif
-                                  @endif
-                                  <a href="{{ url('food/'.$person->id.'/edit') }}" class="relative">
-                                     @csrf
-                                        <i class="material-icons md-90 ml-auto">add</i>
-                                  </a>
+                                   </div>
+                                  </div>
                                   </div>
                               </div>
                           </div>
@@ -366,9 +398,10 @@
                                               @endphp
                                         
                                            @if ($lastToilets->created_at->diffInHours(now()) >= 6)
-                                              <p class="text-red-500 font-bold text-xl">トイレ誘導してください</p>
+                                              <p class="text-red-500 font-bold text-xl">誘導してください</p>
                                               @else
                                                 @if($lastToilets->urine_one || $lastToilets->urine_two || $lastToilets->urine_three)
+                                                <div class="mx-1.5">
                                                 <p class="text-gray-900 font-bold text-sm">尿</p>
                                                   @if($lastToilets->urine_one)
                                                   <a href="{{ route('toilets.show', $lastToilets->id) }}" class="text-gray-900 font-bold text-xl">{{ $lastToilets->urine_one }}</a>
@@ -379,9 +412,11 @@
                                                   @if($lastToilets->urine_three)
                                                   <a href="{{ route('toilets.show', $lastToilets->id) }}" class="text-gray-900 font-bold text-xl">{{ $lastToilets->urine_three }}</a>
                                                   @endif
+                                                 </div>
                                                 @endif
                                                   @if($lastToilets->ben_one || $lastToilets->ben_two || $lastToilets->ben_three)
-                                                  <p class="text-gray-900 font-bold text-sm">便</p>
+                                                   <div class="mx-1.5">
+                                                    <p class="text-gray-900 font-bold text-sm">便</p>
                                                     @if($lastToilets->ben_one)
                                                     <a href="{{ route('toilets.show', $lastToilets->id) }}" class="text-gray-900 font-bold text-xl">{{ $lastToilets->ben_one }}</a>
                                                     @endif
@@ -391,6 +426,7 @@
                                                     @if($lastToilets->ben_three)
                                                     <a href="{{ route('toilets.show', $lastToilets->id) }}" class="text-gray-900 font-bold text-xl">{{ $lastToilets->ben_three }}</a>
                                                     @endif
+                                                   </div>
                                                   @endif
                                             @endif
                                           @endif
@@ -426,7 +462,7 @@
                                                     </a>
                                                     <!--<a href="{{ route('speeches.show', $lastSpeech->id) }}" class="font-bold text-xl">{{ $lastSpeech->activity }}</a>-->
                                                 @else
-                                                    <p class="text-red-500 font-bold text-xl">登録してください。</p>
+                                                    <p class="text-red-500 font-bold text-xl">登録してください</p>
                                                     <a href="{{ url('speech/'.$person->id.'/edit') }}">
                                                         <!--<i class="fa-solid fa-volume-high text-orange-400" style="font-size: 2em; padding: 0 5px;"></i>-->
                                                         @csrf
@@ -443,6 +479,25 @@
                                             @endif
                                         </div>
                                     </div>
+                                    
+                                    
+                                    
+                                    　　<div class="border-2 p-2 rounded-lg bg-white m-2">
+                                          <div class="flex justify-start items-center">
+                                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+                                            <script src="https://kit.fontawesome.com/de653d534a.js" crossorigin="anonymous"></script>
+                                            <i class="fa-regular fa-clipboard text-green-700" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
+                                            <p class="text-green-700 font-bold text-xl ml-2">{{ $person->person_name }}さんの記録</p>
+                                          </div>
+                                          <div class="flex justify-center mt-4">
+                                            <a href="{{ url('record/'.$person->id.'/edit') }}" class="relative">
+                                              @csrf
+                                              <i class="material-icons md-90">add</i>
+                                            </a>
+                                          </div>
+                                    　　</div>
+
+                                    
 
                                         <!--<a href="{{ url('record/'.$person->id.'/edit') }}">-->
                                         <!--<i class="fa-regular fa-clipboard text-green-500" style="font-size: 2em; padding: 0 5px;"></i>-->
@@ -489,11 +544,11 @@ function showToiletModal() {
     var currentTime = new Date();
     //11：30になったらモーダル表示させる　ターゲットの時刻を設定 
     var targetTime_from = new Date();
-    targetTime_from.setHours(11);
-    targetTime_from.setMinutes(30);
+    targetTime_from.setHours(12);
+    targetTime_from.setMinutes(28);
     
     var targetTime_to = new Date();
-    targetTime_to.setHours(12);
+    targetTime_to.setHours(13);
     targetTime_to.setMinutes(00);
     
     

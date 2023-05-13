@@ -13,12 +13,12 @@
               
             }
           </style>
+        <div class ="flex items-center justify-center">
         <h2>{{$person->person_name}}さんの食事登録</h2>
+        </div>
         </form>
     
-          <button type="button" button id="modal-button" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">食事量をとうろくする</button>
-      </div>
-  </div>  
+          <!--<button type="button" button id="modal-button" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">食事量をとうろくする</button>-->
   <!--ヘッダー[END]-->
             
         <!-- バリデーションエラーの表示に使用-->
@@ -32,197 +32,233 @@
                         <!--<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-1">-->
                         <!--今日のこんだて-->
                         <!--</label>-->
-                        <input name="food" id="text-box" class="appearance-none block w-full text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="">
+                        <!--<input name="food" id="text-box" class="appearance-none block w-full text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="">-->
                         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
                          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
                          <script src="https://kit.fontawesome.com/de653d534a.js" crossorigin="anonymous"></script>
                             <!--モーダル表示部分↓-->
-          <div id="modal" class="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-10 hidden">
-  <div class="flex flex-col items-center">
-      <style>
-        p {
-          font-family: Arial, sans-serif; /* フォントをArialに設定 */
-          font-size: 25px; /* フォントサイズを20ピクセルに設定 */
-          font-weight: bold;
-        }
-      </style>
-
-    <p>どれぐらい食べましたか？</p>
-    <div class="flex items-center justify-center">
-      <div class="flex flex-col items-center">
-        <span class="text-gray-400 text-4xl" onclick="changeColorAndSize(this, 'rice_bowl_icon_1')">
-          <i class="fa-solid fa-bowl-rice text-gray-500 hover:text-white"  id="rice_bowl_icon_1" style="font-size: 1.5em; padding: 0 5px; transition: transform 0.2s;"></i>
-        </span>
-              <style>
-              a:hover > i, a:active > i {
-                transform: scale(1.3);
-              }
-              </style>
-      </div>
-      
-      <div class="flex flex-col items-center">
-        <span class="text-gray-400 text-4xl" onclick="changeColorAndSize(this, 'rice_bowl_icon_2')">
-          <i class="fa-solid fa-bowl-rice text-gray-500 hover:text-white"  id="rice_bowl_icon_2" style="font-size: 1.5em; padding: 0 5px; transition: transform 0.2s;"></i>
-        </span>
-          <style>
-          a:hover > i {
-            transform: scale(1.3);
-          }
-          </style>
-      </div>
-      
-      <div class="flex flex-col items-center">
-        <span class="text-gray-400 text-4xl" onclick="changeColorAndSize(this, 'rice_bowl_icon_3')">
-          <i class="fa-solid fa-bowl-rice text-gray-500 hover:text-white"  id="rice_bowl_icon_3" style="font-size: 1.5em; padding: 0 5px; transition: transform 0.2s;"></i>
-        </span>
-          <style>
-          a:hover > i {
-            transform: scale(1.3);
-          }
-          </style>
-      </div>
-      
-      <div class="flex flex-col items-center">
-        <span class="text-gray-400 text-4xl" onclick="changeColorAndSize(this, 'rice_bowl_icon_4')">
-          <i class="fa-solid fa-bowl-rice text-gray-500 hover:text-white"  id="rice_bowl_icon_4" style="font-size: 1.5em; padding: 0 5px; transition: transform 0.2s;"></i>
-        </span>
-          <style>
-          a:hover > i {
-            transform: scale(1.3);
-          }
-          </style>
-      </div>
-      
-      <div class="flex flex-col items-center">
-        <span class="text-gray-400 text-4xl" onclick="changeColorAndSize(this, 'rice_bowl_icon_5')">
-          <i class="fa-solid fa-bowl-rice text-gray-500 hover:text-white"  id="rice_bowl_icon_5" style="font-size: 1.5em; padding: 0 5px; transition: transform 0.2s;"></i>
-        </span>
-          <style>
-          a:hover > i {
-            transform: scale(1.3);
-          }
-          </style>
-      </div>
-    </div>
-    　<div class="flex items-center justify-center">
-        <input name="staple_food" type="text" id="staple_food" class="w-300 h-10px flex-shrink-0 break-words">
-      </div>
-    
-    <div class="flex items-center justify-center">
-      <div class="flex flex-col items-center">
-        <span class="text-gray-400 text-4xl" onclick="changeColorAndSize(this, 'set_meal_1')">
-          <i class="material-icons md-48 text-gray-500 hover:text-black" id="set_meal_1" style="font-size: 1.5em; padding: 0 5px; transition: transform 0.2s;">set_meal</i>
-        </span>
-           <style>
-          a:hover > i {
-            transform: scale(1.3);
-          }
-          </style>
-        
-      </div>
-      
-       <div class="flex flex-col items-center">
-        <span class="text-gray-400 text-4xl" onclick="changeColorAndSize(this, 'set_meal_2')">
-          <i class="material-icons md-48 text-gray-500 hover:text-black" id="set_meal_2" style="font-size: 1.5em; padding: 0 5px; transition: transform 0.2s;">set_meal</i>
-        </span> 
-           <style>
-          a:hover > i {
-            transform: scale(1.3);
-          }
-          </style>
-      </div>
-      
-       <div class="flex flex-col items-center">
-        <span class="text-gray-400 text-4xl" onclick="changeColorAndSize(this, 'set_meal_3')">
-          <i class="material-icons md-48 text-gray-500 hover:text-black" id="set_meal_3" style="font-size: 1.5em; padding: 0 5px; transition: transform 0.2s;">set_meal</i>
-        </span>
-           <style>
-          a:hover > i {
-            transform: scale(1.3);
-          }
-          </style>
-      </div>
-      
-      <div class="flex flex-col items-center">
-        <span class="text-gray-400 text-4xl" onclick="changeColorAndSize(this, 'set_meal_4')">
-          <i class="material-icons md-48 text-gray-500 hover:text-black" id="set_meal_4" style="font-size: 1.5em; padding: 0 5px; transition: transform 0.2s;">set_meal</i>
-        </span>
-           <style>
-          a:hover > i {
-            transform: scale(1.3);
-          }
-          </style>
-      </div>
-       
-      <div class="flex flex-col items-center">
-        <span class="text-gray-400 text-4xl" onclick="changeColorAndSize(this, 'set_meal_5')">
-          <i class="material-icons md-48 text-gray-500 hover:text-black" id="set_meal_5" style="font-size: 1.5em; padding: 0 5px; transition: transform 0.2s;">set_meal</i>
-        </span>  
-          <style>
-            a:hover > i {
-              transform: scale(1.3);
-            }
-          </style>
-       </div>
-    </div>  
-          <div class="flex items-center justify-center">
-            <input name="side_dish" type="text" id="side_dish" class="w-300 h-10px flex-shrink-0 break-words">
-          </div>
-   
-      
-    
-      <div class="flex items-center justify-center  mt-4">
-        <button type="button" button id="next-button" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded" style="padding: 10px;">次へ</button>
-  　　</div> 
-　    
-          
-     
-
-　　　　  <div id="next-modal" class="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-10 hidden">
-　　　　   
-　　　　   <p>薬の服用</p>
-            <i class="material-icons md-48">medication</i>
-            <!--<form action="送信先のURL" method="POST">-->
-                <select name="medicine">
-                  <option value="selected">選択してください</option>
-                  <option value="yes">あり</option>
-                  <option value="no">なし</option>
-                </select>
-                <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">
-                                送信
-                </button>
-           </div>
-            
+          <!--<div id="modal" class="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-10 hidden">-->
+                    <div class="flex flex-col items-center">
+                        <style>
+                          p {
+                            font-family: Arial, sans-serif; /* フォントをArialに設定 */
+                            font-size: 25px; /* フォントサイズを20ピクセルに設定 */
+                            font-weight: bold;
+                          }
+                        </style>
+                  
+                            <p>どれぐらい食べましたか？</p>
+                              <div class="flex items-center justify-center">
+                                <div class="flex flex-col items-center">
+                                  <span class="text-gray-400 text-4xl" onclick="changeColorAndSize(this, 'rice_bowl_icon_1')">
+                                    <i class="fa-solid fa-bowl-rice text-red-300 hover:text-white"  id="rice_bowl_icon_1" style="font-size: 1.5em; padding: 15px 5px; transition: transform 0.2s;"></i>
+                                  </span>
+                                </div>
+                              </div>
+                              
+                               <div style="max-width: 350px; margin: 2rem auto;">
+                                    <input type="range" id ="rice_range" class="input-range" name="foo" min="0" max="10" oninput="oninput_rice()">
+                                  </div>
+                                  
+                                  <style>
+                                  /*// リセットCSS（すでに指定済なら不要）*/
+                                  /** {*/
+                                  /*  box-sizing: border-box;*/
+                                  /*}*/
+                                  
+                                  /*// 🚩：重要なポイント*/
+                                  
+                                  .input-range {
+                                    -webkit-appearance: none;
+                                    appearance: none;
+                                    cursor: pointer;
+                                    background: #8acdff;
+                                    height: 14px;
+                                    width: 100%; 
+                                    border-radius: 10px; 
+                                    border: solid 3px #dff1ff; 
+                                    outline: 0; /* アウトラインを消して代わりにfocusのスタイルをあてる */
+                                    &:focus {
+                                      box-shadow: 0 0 3px rgb(0, 161, 255);
+                                    }
+                                    /*// -webkit-向けのつまみ*/
+                                    &::-webkit-slider-thumb {
+                                      -webkit-appearance: none; 
+                                      background: #53aeff; 
+                                      width: 24px; 
+                                      height: 24px; 
+                                      border-radius: 50%;
+                                      box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
+                                    }
+                                    /*// -moz-向けのつまみ*/
+                                    &::-moz-range-thumb {
+                                      background: #53aeff;
+                                      width: 24px;
+                                      height: 24px;
+                                      border-radius: 50%;
+                                      box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
+                                      border: none; 
+                                    }
+                                    /*// Firefoxで点線が周りに表示されてしまう問題の解消*/
+                                    &::-moz-focus-outer {
+                                      border: 0;
+                                    }
+                                    /*// つまみをドラッグしているときのスタイル*/
+                                    &:active::-webkit-slider-thumb {
+                                      box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.3);
+                                    }
+                                  }
+                                  
+                                  </style>
+                                  
+                              　<div class="flex items-center justify-center">
+                              　  <p class="text-lg">主食</p>
+                                  <input name="staple_food" type="text" id="staple_food" class="w-1/4 h-8px flex-shrink-0 break-words mx-1">
+                                   <p class="text-lg">割</p>
+                                </div>
+                              
+                              <div class="flex items-center justify-center">
+                                <div class="flex flex-col items-center">
+                                  <span class="text-gray-400 text-4xl" onclick="changeColorAndSize(this, 'set_meal_1')">
+                                    <i class="material-icons md-48 text-blue-600 hover:text-black" id="set_meal_1" style="font-size: 2em; padding: 15px 5px; transition: transform 0.2s;">set_meal</i>
+                                  </span>
+                                </div>
+                              </div>  
+                              
+                              <div style="max-width: 350px; margin: 2rem auto;">
+                                <input type="range" id ="meal_range" class="input-range" name="foo" min="0" max="10" oninput="oninput_meal()">
+                              </div>
+                                  
+                                  <style>
+                                  /*// リセットCSS（すでに指定済なら不要）*/
+                                  /** {*/
+                                  /*  box-sizing: border-box;*/
+                                  /*}*/
+                                  
+                                  /*// 🚩：重要なポイント*/
+                                  
+                                  .input-range {
+                                    -webkit-appearance: none;
+                                    appearance: none;
+                                    cursor: pointer;
+                                    background: #8acdff;
+                                    height: 14px;
+                                    width: 100%; 
+                                    border-radius: 10px; 
+                                    border: solid 3px #dff1ff; 
+                                    outline: 0; /* アウトラインを消して代わりにfocusのスタイルをあてる */
+                                    &:focus {
+                                      box-shadow: 0 0 3px rgb(0, 161, 255);
+                                    }
+                                    /*// -webkit-向けのつまみ*/
+                                    &::-webkit-slider-thumb {
+                                      -webkit-appearance: none; 
+                                      background: #53aeff; 
+                                      width: 24px; 
+                                      height: 24px; 
+                                      border-radius: 50%;
+                                      box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
+                                    }
+                                    /*// -moz-向けのつまみ*/
+                                    &::-moz-range-thumb {
+                                      background: #53aeff;
+                                      width: 24px;
+                                      height: 24px;
+                                      border-radius: 50%;
+                                      box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
+                                      border: none; 
+                                    }
+                                    /*// Firefoxで点線が周りに表示されてしまう問題の解消*/
+                                    &::-moz-focus-outer {
+                                      border: 0;
+                                    }
+                                    /*// つまみをドラッグしているときのスタイル*/
+                                    &:active::-webkit-slider-thumb {
+                                      box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.3);
+                                    }
+                                  }
+                                  
+                                  </style>
+                                  
+                                    <div class="flex items-center justify-center">
+                                      <p class="text-lg">副食</p>
+                                      <input name="side_dish" type="text" id="side_dish" class="w-1/4 h-8px flex-shrink-0 break-words mx-1">
+                                      <p class="text-lg">割</p>
+                                    </div>
+                             
+                                
+                              
+                                <!--<div class="flex items-center justify-center  mt-4">-->
+                                  <!--<button type="button" button id="next-button" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded" style="padding: 10px;">次へ</button>-->
+                            　　<!--</div> -->
+                          
+                          　   <!--<div id="next-modal" class="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-10 hidden">-->
+                          　　　
+                                      <i class="fa-solid fa-prescription-bottle-medical text-green-600 hover:text-white" style="font-size: 3em; padding: 15px 5px; transition: transform 0.2s;"></i>
+                                      <!--<form action="送信先のURL" method="POST">-->
+                                      <div class="flex items-center justify-center">
+                                      　 <p class="text-lg">服用</p>
+                                          <select name="medicine" class="w-1/4">
+                                            <option value="selected">選択してください</option>
+                                            <option value="yes">あり</option>
+                                            <option value="no">なし</option>
+                                          </select>
+                                      </div>
+                                          <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-8 px-4 rounded" style="padding: 10px;">
+                                            送信
+                                          </button>
+                              </div>
+                    </div>
+                  </div>
   </form>
-    <!--右側エリア[START]-->
-   
-            <!--<div class="flex-1 text-gray-700 text-left bg-blue-100 px-4 py-2 m-2">-->
-         <!-- 現在の本 -->
-              <!--<div>-->
-              <!--  <video autoplay muted playsinline id="video"></video>-->
-              <!--</div>-->
-              <!--  <button type="button" button id="modal-button" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">食事量をとうろくする</button>-->
-                <!--<button type="button" button id="button" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">写真を撮る</button>-->
-            <!--</div>  -->
-            <!--<div>-->
-            <!--   <img id="image" alt="" />-->
-            <!--</div>-->
-            <!--カメラが映っている部分が表示されている箇所↓-->
-            <!--<div class="flex">-->
 
-              <!--福島先生コード-->
-            <!--  <input type="hidden" id="base64_image" name="base64_image" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded" value="" />-->
-            <!--  <div id="video-container">-->
-            <!--    <video id="camera-stream" autoplay></video>-->
-            <!--  </div>-->
-            <!--</div>-->
-            <!--<div v-show="isModeImage">-->
-            <!--  <canvas ref="canvas" width="640" height="480"></canvas>-->
-            <!--</div>-->
-    <!--右側エリア[[END]--> 
-<!--</div>-->
  <!--全エリア[END]-->
 <script>
+
+function oninput_rice(){
+  var rice_range = document.getElementById('rice_range');
+  const staple_food = document.getElementById("staple_food");
+  staple_food.value = rice_range.value;
+};
+
+
+function oninput_meal(){
+  var meal_range = document.getElementById('meal_range');
+  const side_dish = document.getElementById("side_dish");
+  side_dish.value = meal_range.value;
+};
+
+// スクロールイベント↓
+
+  function countScroll() {
+  var target = document.getElementById('target');
+  var x = target.scrollLeft;
+  document.getElementById('output').innerHTML = x;
+  
+  // アイコンのサイズ変更
+  // var leftIcon = document.getElementById('leftIcon');
+  // var rightIcon = document.getElementById('rightIcon');
+  // var newSize = 2 + x / 100; // スクロール量に応じてサイズを変更する調整値
+  // leftIcon.style.fontSize = newSize + 'em';
+  // rightIcon.style.fontSize = newSize + 'em';
+  
+  // アイコンの位置調整
+  // var iconWrapper = document.getElementById('iconWrapper');
+  // var maxScroll = target.scrollWidth - target.clientWidth;
+  // var iconPosition = x / maxScroll * (target.clientWidth - leftIcon.clientWidth);
+  // iconWrapper.style.left = iconPosition + 'px';
+}
+
+// スクロールイベントの監視
+var target = document.getElementById('target');
+target.addEventListener('scroll', countScroll);
+
+
+
+
+
+
+
 // モーダルを表示する関数
 function showModal() {
   var modal = document.querySelector('#modal');
