@@ -56,7 +56,7 @@
                                 </div>
                               </div>
                               
-                               <div style="max-width: 350px; margin: 2rem auto;">
+                               <div style="max-width: 350px; margin: 1.5rem auto;">
                                     <input type="range" id ="rice_range" class="input-range" name="foo" min="0" max="10" oninput="oninput_rice()">
                                   </div>
                                   
@@ -120,12 +120,12 @@
                               <div class="flex items-center justify-center">
                                 <div class="flex flex-col items-center">
                                   <span class="text-gray-400 text-4xl" onclick="changeColorAndSize(this, 'set_meal_1')">
-                                    <i class="material-icons md-48 text-blue-600 hover:text-black" id="set_meal_1" style="font-size: 2em; padding: 15px 5px; transition: transform 0.2s;">set_meal</i>
+                                    <i class="material-icons md-48 text-blue-600 " id="set_meal_1" style="font-size: 2em; padding: 30px 5px 15px 10px; margin-top:20px; transition: transform 0.2s;">set_meal</i>
                                   </span>
                                 </div>
                               </div>  
                               
-                              <div style="max-width: 350px; margin: 2rem auto;">
+                              <div style="max-width: 350px; margin: 1.5rem auto;">
                                 <input type="range" id ="meal_range" class="input-range" name="foo" min="0" max="10" oninput="oninput_meal()">
                               </div>
                                   
@@ -180,8 +180,8 @@
                                   
                                   </style>
                                   
-                                    <div class="flex items-center justify-center">
-                                      <p class="text-lg">副食</p>
+                                    <div class="flex items-center justify-center margin-top: 10px;">
+                                      <p class="text-lg">　副食</p>
                                       <input name="side_dish" type="text" id="side_dish" class="w-1/4 h-8px flex-shrink-0 break-words mx-1">
                                       <p class="text-lg">割</p>
                                     </div>
@@ -198,13 +198,13 @@
                                       <!--<form action="送信先のURL" method="POST">-->
                                       <div class="flex items-center justify-center">
                                       　 <p class="text-lg">服用</p>
-                                          <select name="medicine" class="w-1/4">
+                                          <select name="medicine">
                                             <option value="selected">選択してください</option>
                                             <option value="yes">あり</option>
                                             <option value="no">なし</option>
                                           </select>
                                       </div>
-                                          <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-8 px-4 rounded" style="padding: 10px;">
+                                          <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold my-1.5 py-8 px-4 rounded" style="padding: 10px;">
                                             送信
                                           </button>
                               </div>

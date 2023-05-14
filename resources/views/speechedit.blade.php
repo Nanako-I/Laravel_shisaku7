@@ -13,7 +13,8 @@
             }
           </style>
       </div>   
-      <div style="display: flex; align-items: center; margin-left: auto; margin-right: auto; max-width: 300px;">
+      <div class="flex items-center justify-start m-1.5">
+      <!--<div style="display: flex; align-items: center; margin-left: auto; margin-right: auto; max-width: 300px;">-->
            <h2>{{$person->person_name}}さんの活動記録</h2>
      </div>  
    

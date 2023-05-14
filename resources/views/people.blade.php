@@ -46,12 +46,13 @@
 　　　<!--<section class="text-gray-600 body-font" _msthidden="18">-->
    <!-- 　   　<div class="container px-5 py-24 mx-auto" _msthidden="18">-->
 　　　<!--　　　<div class="flex flex-wrap -m-4" _msthidden="18">-->
-    
-       
+<body>
 <style>
   /* フォントを指定 */
+  
   body {
-    font-family: Arial, sans-serif; /* フォントをArialに設定 */
+    font-family: 'Noto Sans JP', sans-serif; /* フォントをArialに設定 */
+  background: linear-gradient(135deg, rgb(209, 253, 255,0), rgb(253, 219, 146,1));
   }
   </style>
         <!--// 処理-->
@@ -77,13 +78,13 @@
                   <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
                     <div class="modal-content py-4 text-left px-6">
                       <div class="modal-header flex justify-between items-center">
-                        <h5 class="modal-title text-2xl font-bold">トイレ誘導</h5>
+                        <h5 class="modal-title text-2xl font-bold">食事記録</h5>
                         <!--<button type="button" class="close" data-dismiss="modal" aria-label="閉じる">-->
                         <!--  <span aria-hidden="true">&times;</span>-->
                         <!--</button>-->
                       </div>
                       <div class="modal-body py-2">
-                        <p class="text-lg">11:30になりましたので、トイレ誘導してください。</p>
+                        <p class="text-lg">朝ごはんの記録はつけましたか？</p>
                       </div>
                       <div class="modal-footer flex justify-end items-center py-2">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" id="myModal .close">閉じる</button>
@@ -109,6 +110,7 @@
                      <style>
                       .slide {
                         width:100vw;
+                        background: rgb(244,244,244);
                       }
                       @media screen and (min-width: 768px){
                         .slide {
@@ -150,11 +152,11 @@
                             <div class="flex justify-start items-center">
                                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
                                 <script src="https://kit.fontawesome.com/de653d534a.js" crossorigin="anonymous"></script>
-                                <i class="fa-solid fa-bowl-rice text-green-700" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
-                                <p class="text-green-700 font-bold text-xl ml-2">食事量</p>
+                                <i class="fa-solid fa-bowl-rice text-emerald-700" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
+                                <p class="text-emerald-700 font-bold text-xl ml-2">食事量</p>
                             </div>
                               <div class="flex items-center justify-center p-4 flex-col md:flex-row">
-                                <div class="h-28 md:h-48 w-full md:w-40 border-2 p-4 rounded-lg bg-white mt-4 md:mt-0">
+                                <div class="h-28 md:h-48 w-full md:w-40 border-2 p-4 rounded-lg bg-white mt-4 md:mt-0 shadow-gray-400">
                                        <div class="flex justify-start ">
                                     <!--<div class="flex flex-grow flex-shrink-0 flex-basis-40 border p-4 rounded-lg bg-white mr-4">-->
                                         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
@@ -217,7 +219,7 @@
                                     </div>
                                 
                                   <!--<div class="flex flex-grow flex-shrink-0 flex-basis-40 border p-4 rounded-lg bg-white mr-4">-->
-                                   <div class="h-28 md:h-48 w-full md:w-40 border-2 p-4 rounded-lg bg-white mt-4 md:mt-0">
+                                   <div class="h-28 md:h-48 w-full md:w-40 border-2 p-4 rounded-lg bg-white mt-4 md:mt-0 shadow-gray-400">
                                       <div class="flex justify-start ">
                                     <!--<div class="flex flex-grow flex-shrink-0 flex-basis-40 border p-4 rounded-lg bg-white mr-4">-->
                                         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
@@ -280,7 +282,7 @@
                                         </div>
                                     </div>
                                   <!--<div class="flex flex-grow flex-shrink-0 flex-basis-40 border p-4 rounded-lg bg-white mr-4">-->
-                                  <div class="h-28 md:h-48 w-full md:w-40 border-2 p-4 rounded-lg bg-white mt-4 md:mt-0">
+                                  <div class="h-28 md:h-48 w-full md:w-40 border-2 p-4 rounded-lg bg-white mt-4 md:mt-0 shadow-gray-400">
                                       <div class="flex justify-start ">
                                     <!--<div class="flex flex-grow flex-shrink-0 flex-basis-40 border p-4 rounded-lg bg-white mr-4">-->
                                             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
@@ -357,8 +359,8 @@
                                       <div class="flex justify-start items-center">
                                         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
                                         <script src="https://kit.fontawesome.com/de653d534a.js" crossorigin="anonymous"></script>
-                                        <i class="fa-solid fa-thermometer text-red-400" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
-                                        <p class="text-red-400 font-bold text-xl ml-2">体温</p>
+                                        <i class="fa-solid fa-thermometer text-pink-600" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
+                                        <p class="text-pink-600 font-bold text-xl ml-2">体温</p>
                                     </div>
                                   <div class="flex items-center justify-center p-4">
                                    
@@ -387,8 +389,8 @@
                                         <div class="flex justify-start items-center">
                                             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
                                             <script src="https://kit.fontawesome.com/de653d534a.js" crossorigin="anonymous"></script>
-                                            <i class="fa-solid fa-toilet-paper text-blue-600" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
-                                            <p class="text-blue-600 font-bold text-xl ml-2">トイレ</p>
+                                            <i class="fa-solid fa-toilet-paper text-blue-700" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
+                                            <p class="text-blue-700 font-bold text-xl ml-2">トイレ</p>
                                         </div>
                                     <div class="flex items-center justify-center p-4">
                                    
@@ -443,8 +445,8 @@
                                     <div class="flex justify-start items-center">
                                         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
                                         <script src="https://kit.fontawesome.com/de653d534a.js" crossorigin="anonymous"></script>
-                                        <i class="fa-solid fa-volume-high text-orange-400" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
-                                        <p class="text-orange-400 font-bold text-xl ml-2">活動の記録</p>
+                                        <i class="fa-solid fa-volume-high text-orange-600" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
+                                        <p class="text-orange-600 font-bold text-xl ml-2">活動の記録</p>
                                     </div>
                                         <div class="flex items-center justify-center p-4">
                                             @if (!is_null($person) && count($person->speeches) > 0)
@@ -514,7 +516,7 @@
               @if (count($people) % 2 == 0)
                 <div class="flex justify-center">
                   <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
-                    <div class="h-50 flex items-center border-gray-200 border-2 p-4 rounded-lg"></div>
+                    <!--<div class="h-50 flex items-center border-gray-200 border-2 p-4 rounded-lg"></div>-->
                   </div>
                 </div>
               @endif
@@ -544,11 +546,11 @@ function showToiletModal() {
     var currentTime = new Date();
     //11：30になったらモーダル表示させる　ターゲットの時刻を設定 
     var targetTime_from = new Date();
-    targetTime_from.setHours(12);
-    targetTime_from.setMinutes(28);
+    targetTime_from.setHours(17);
+    targetTime_from.setMinutes(25);
     
     var targetTime_to = new Date();
-    targetTime_to.setHours(13);
+    targetTime_to.setHours(18);
     targetTime_to.setMinutes(00);
     
     

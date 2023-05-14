@@ -4,7 +4,13 @@
      <form action="{{ url('people' ) }}" method="POST" class="w-full max-w-lg">
                         @method('PATCH')
                         @csrf
+                        
+    <body>
             <style>
+            body {
+                  font-family: 'Noto Sans JP', sans-serif; /* フォントをArialに設定 */
+                  background: linear-gradient(135deg, rgb(254,240,138,0.5), rgb(254,252,232,0.5));
+                  }
             h2 {
               font-family: Arial, sans-serif; /* フォントをArialに設定 */
               font-size: 20px; /* フォントサイズを20ピクセルに設定 */
@@ -149,4 +155,5 @@ textBox.addEventListener('input', function() {
 });
 
 </script>
+</body>
 </x-app-layout>

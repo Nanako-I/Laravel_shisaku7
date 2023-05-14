@@ -32,9 +32,13 @@
                         @csrf
                         
                     
-                       
+<body>                    
 <div style="display: flex; flex-direction: column;">
      <style>
+     body {
+          font-family: 'Noto Sans JP', sans-serif; /* フォントをArialに設定 */
+          background: linear-gradient(135deg, rgb(253, 219, 146,0), rgb(209, 253, 255,1));
+          }
      h3 {
           font-family: Arial, sans-serif; /* フォントをArialに設定 */
           font-size: 20px; /* フォントサイズを20ピクセルに設定 */
@@ -42,7 +46,7 @@
           text-decoration: underline;
         }
         </style>
- <div style="display: flex; align-items: center; margin-left: auto; margin-right: auto; max-width: 300px;">
+ <div style="display: flex; flex-direction: column; align-items: center;">
   <h3>尿</h3>
  </div>
   <div style="display: flex; align-items: center; margin-left: auto; margin-right: auto; max-width: 300px;">
@@ -85,7 +89,12 @@
         <script src="https://kit.fontawesome.com/de653d534a.js" crossorigin="anonymous"></script>
         <i class="fa-solid fa-droplet text-yellow-500"  id="urine_color_3" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
     </div>
-     <input name="urine_color" type="text" id="urine_color_input" class="w-300 h-8px flex-shrink-0 break-words mt-px mb-1.5">
+    <div style="display: flex; align-items: center; margin-left: auto; margin-right: auto; max-width: 300px;">
+    <span class="text-gray-400 text-6xl" onclick="changeColor(this, 'urine_three')">
+      <i class="material-icons md-48 hidden" id="urine_three">check_box</i>
+    </span>
+    <input name="urine_color" type="text" id="urine_color_input" class="w-300 h-8px flex-shrink-0 break-words mt-px mb-1.5">
+  </div>
 </div>
 
 
@@ -137,8 +146,13 @@
             <script src="https://kit.fontawesome.com/de653d534a.js" crossorigin="anonymous"></script>
             <i class="fa-solid fa-circle text-black" id="ben_color_3" style="font-size: 2em; padding: 0 5px; transition: transform 0.2s;"></i>
         </div>
+        <div style="display: flex; align-items: center; margin-left: auto; margin-right: auto; max-width: 300px;">
+        <span class="text-gray-400 text-6xl" onclick="changeColor(this, 'urine_three')">
+          <i class="material-icons md-48 hidden" id="urine_three">check_box</i>
+        </span>
         <input name="ben_color" type="text" id="ben_color_input" class="w-300 h-8px flex-shrink-0 break-words mt-px mb-1.5">
-　　</div>
+        </div>
+    </div>
 
 　　<div style="display: flex; align-items: center; margin-left: auto; margin-right: auto; max-width: 300px;">
      <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg text-lg mr-4">
@@ -226,4 +240,5 @@ BenColorInput.value = '黒';
 
 
 </script>
+</body> 
 </x-app-layout>
