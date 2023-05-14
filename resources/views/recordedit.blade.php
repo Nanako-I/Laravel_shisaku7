@@ -1,12 +1,18 @@
 <x-app-layout>
 
     <!--ヘッダー[START]-->
+<body>
   <div class="flex items-center justify-center" style="padding: 20px 0;">
     <div class="flex flex-col items-center">
      <form action="{{ url('people' ) }}" method="POST" class="w-full max-w-lg">
                         @method('PATCH')
                         @csrf
+    
       <style>
+      body {
+            font-family: 'Noto Sans JP', sans-serif; /* フォントをArialに設定 */
+          background: rgb(253, 219, 146,0.2);
+          }
         h2 {
           font-family: Arial, sans-serif; /* フォントをArialに設定 */
           font-size: 20px; /* フォントサイズを20ピクセルに設定 */
@@ -107,6 +113,6 @@
     @endforeach
   </tbody>
 </table>
-
+</body>
 {{-- 追加した Blade ディレクティブ --}}
 </x-app-layout>

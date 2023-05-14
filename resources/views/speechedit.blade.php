@@ -4,8 +4,13 @@
      <form action="{{ url('people' ) }}" method="POST" class="w-full max-w-lg">
                         @method('PATCH')
                         @csrf
+  <body>
       <div style="display: flex; flex-direction: column;">
          <style>
+         body {
+              font-family: 'Noto Sans JP', sans-serif; /* フォントをArialに設定 */
+              background: linear-gradient(135deg, rgb(253, 219, 146,0), rgb(209, 253, 255,1));
+              }
             h2 {
               font-family: Arial, sans-serif; /* フォントをArialに設定 */
               font-size: 20px; /* フォントサイズを20ピクセルに設定 */
@@ -43,7 +48,7 @@ height: 100vh;
 
 <form action="{{ url('speech/'.$person->id.'/edit') }}" method="POST">
   @csrf
-<textarea id="result-speech" name="activity" class="w-full max-w-lg"></textarea>
+<textarea id="result-speech" name="activity" class="w-full max-w-lg" style="height: 200px;"></textarea>
 
     <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">
         送信

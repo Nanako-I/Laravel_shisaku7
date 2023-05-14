@@ -9,7 +9,7 @@
             <style>
             body {
                   font-family: 'Noto Sans JP', sans-serif; /* フォントをArialに設定 */
-                  background: linear-gradient(135deg, rgb(254,240,138,0.5), rgb(254,252,232,0.5));
+                  background: linear-gradient(135deg, rgb(253, 219, 146,0), rgb(209, 253, 255,1));
                   }
             h2 {
               font-family: Arial, sans-serif; /* フォントをArialに設定 */

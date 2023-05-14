@@ -196,10 +196,10 @@
                           　　　
                                       <i class="fa-solid fa-prescription-bottle-medical text-green-600 hover:text-white" style="font-size: 3em; padding: 15px 5px; transition: transform 0.2s;"></i>
                                       <!--<form action="送信先のURL" method="POST">-->
-                                      <div class="flex items-center justify-center">
+                                      <div class="flex items-center justify-center my-2">
                                       　 <p class="text-lg">服用</p>
-                                          <select name="medicine">
-                                            <option value="selected">選択してください</option>
+                                          <select name="medicine" class="w-1/3 mx-1">
+                                            <option value="selected">選択</option>
                                             <option value="yes">あり</option>
                                             <option value="no">なし</option>
                                           </select>
