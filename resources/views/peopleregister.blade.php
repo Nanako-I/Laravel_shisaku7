@@ -59,32 +59,35 @@
        
         <!--左エリア[END]--> 
         
-      <!--<body>-->
+      <body>
              <form action="{{ url('peopleregister') }}" method="POST" class="w-full" enctype="multipart/form-data">
                         @csrf
               
                 <br>
-                <h3>ウェブカメラで身分証明書（障害者手帳など）を読みとってデータ入力する</h3>
+                <div class="mx-0.5  my-4">
+                <h3 class ="font-bold">ウェブカメラで身分証明書（障害者手帳など）の写真を撮ってください</h3>
+                
                 <!--モーダル表示部分↓-->
                 <!--<div id="modal" class="modal">-->
                 <!--    <div class="modal-content">  -->
                     <!--モーダル表示部分↑-->
-                　　 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    
+                　　 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-0.5">
   <div class="form-group col-span-1">
-    <label class="block text-sm font-medium text-gray-700">名前</label>
+    <label class="block text-base font-bold text-gray-700">名前</label>
     <input name="person_name" type="text" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="名前">
   </div>
   <div class="form-group col-span-1">
-    <label class="block text-sm font-medium text-gray-700">生年月日</label>
+    <label class="block text-base font-bold text-gray-700">生年月日</label>
     <input name="date_of_birth" type="text" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="生年月日">
   </div>
  <div class="form-group col-span-1">
-      <label class="block text-sm font-medium text-gray-700">プロフィール画像</label>
+      <label class="block text-base font-bold text-gray-700">プロフィール画像</label>
       <input name="filename" id="filename" type="file" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
     </div>
     
   <div class="form-group col-span-1">
-    <label class="block text-sm font-medium text-gray-700">障害名</label>
+    <label class="block text-base font-bold text-gray-700">障害名</label>
     <input name="disability_name" type="text" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="障がい名">
   </div>
   <div class="flex flex-col col-span-1">
@@ -95,7 +98,9 @@
     </div>
   </div>
 </div>
+</div>
 </form>  
+
                 <!--    </div>-->
                 <!--</div>-->
  
@@ -191,7 +196,7 @@
             </div>  
                 
             <!--カメラが映っている部分が表示されている箇所↓-->
-            <div class="flex">
+            <div class="flex mx-2">
                  <!--<style>
                     <div class="relative h-screen">
                       <video id="camera-stream" class="absolute inset-0 w-full h-full object-cover"></video>
@@ -214,7 +219,7 @@
                         <div id="form"></div>
                     </div>
     　　              <div class="w-full h-48 overflow-auto">
-                        <textarea id="text-box" class="w-full h-full break-words"></textarea>
+                        <textarea id="text-box" class="w-full h-full break-words text-base"></textarea>
                     </div>
 　　　　　　
         </div>

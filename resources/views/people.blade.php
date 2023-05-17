@@ -400,6 +400,7 @@
                                     <div class="flex items-center justify-center p-4">
                                    
                                           @if (!is_null($person) && count($person->toilets) > 0)
+                                          
                                               @php
                                                 $lastToilets = $person->toilets->last();
                                               @endphp
@@ -551,12 +552,12 @@ function showToiletModal() {
     var currentTime = new Date();
     //11：30になったらモーダル表示させる　ターゲットの時刻を設定 
     var targetTime_from = new Date();
-    targetTime_from.setHours(17);
-    targetTime_from.setMinutes(25);
+    targetTime_from.setHours(10);
+    targetTime_from.setMinutes(15);
     
     var targetTime_to = new Date();
-    targetTime_to.setHours(18);
-    targetTime_to.setMinutes(00);
+    targetTime_to.setHours(11);
+    targetTime_to.setMinutes(30);
     
     
     // 現在の時刻がターゲットの時刻に達した場合

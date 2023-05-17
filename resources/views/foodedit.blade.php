@@ -198,7 +198,7 @@
                                       <!--<form action="送信先のURL" method="POST">-->
                                       <div class="flex items-center justify-center my-2">
                                       　 <p class="text-lg">服用</p>
-                                          <select name="medicine" class="w-1/3 mx-1">
+                                          <select name="medicine" class="w-3/5 mx-1">
                                             <option value="selected">選択</option>
                                             <option value="yes">あり</option>
                                             <option value="no">なし</option>

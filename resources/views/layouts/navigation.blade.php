@@ -1,14 +1,22 @@
-<nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+<div class = "top_total">
+<nav x-data="{ open: false }" class="dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+     <style>
+    .top_total{
+                background-image: linear-gradient(to right, rgb(255, 195, 160,0.5), rgb(255,175,189,1));
+            }
+    </style>
+</div> 
     <!-- Primary Navigation Menu -->
-    <div class="top_bar max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-orange-200">
+    <div class="top_bar mx-auto px-4 sm:px-6 lg:px-8 bg-orange-200">
         <style>
             .top_bar{
                 background-image: linear-gradient(to right, rgb(255, 195, 160,0.5), rgb(255,175,189,1));
             }
             
         </style>
+       
         <div class="flex justify-between h-16">
-            <div class="flex">
+            <div class="flex ml-1">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
@@ -24,33 +32,33 @@
                     </x-nav-link>
                 </div>
                 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex {{ request()->is('people') ? 'bg-yellow-300 text-black' : '' }} px-4 py-2 rounded-md text-xl font-bold max-w-4xl hover:bg-yellow-200">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex {{ request()->is('people') ? ' text-black' : '' }} px-4 py-2 rounded-md text-xl font-bold max-w-4xl">
                      
                      <x-nav-link :href="url('people')" :active="request()->is('people')">
                     {{ __('利用者一覧') }}
                     </x-nav-link>
                 </div>
                 
-                  <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex {{ request()->is('peopleregister') ? 'bg-green-400 text-black' : '' }} px-4 rounded-md text-xl font-bold hover:bg-green-200 items-center justify-center">
-                     <i class="material-icons md-48" id="face">face</i>
+                  <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex {{ request()->is('peopleregister') ? ' text-black' : '' }} px-4 rounded-md text-xl font-bold items-center justify-center">
+                     <!--<i class="material-icons md-48" id="face">face</i>-->
                      <x-nav-link :href="url('peopleregister')" :active="request()->is('peopleregister')">
                         {{ __('新規登録') }}
                     </x-nav-link>
                 </div>
                 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex {{ request()->is('temperaturelist') ? 'bg-custom-pink text-black' : '' }} px-4 rounded-md text-xl font-bold hover:bg-custom-hover-pink items-center justify-center">
-                     <i class="material-icons md-48" id="face">face</i>
-                     <x-nav-link :href="url('temperaturelist')" :active="request()->is('temperaturelist')">
-                        {{ __('体温登録') }}
-                    </x-nav-link>
-                </div>
+                <!--<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex {{ request()->is('temperaturelist') ? 'bg-custom-pink text-black' : '' }} px-4 rounded-md text-xl font-bold hover:bg-custom-hover-pink items-center justify-center">-->
+                <!--     <i class="material-icons md-48" id="face">face</i>-->
+                <!--     <x-nav-link :href="url('temperaturelist')" :active="request()->is('temperaturelist')">-->
+                <!--        {{ __('体温登録') }}-->
+                <!--    </x-nav-link>-->
+                <!--</div>-->
             
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex {{ request()->is('foodlist') ? 'bg-custom-pink text-black' : '' }} px-4 rounded-md text-xl font-bold hover:bg-custom-hover-pink items-center justify-center">
-                     <i class="material-icons md-48" id="face">face</i>
-                     <x-nav-link :href="url('foodlist')" :active="request()->is('foodlist')">
-                        {{ __('食事登録') }}
-                    </x-nav-link>
-                </div>
+                <!--<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex {{ request()->is('foodlist') ? 'bg-custom-pink text-black' : '' }} px-4 rounded-md text-xl font-bold hover:bg-custom-hover-pink items-center justify-center">-->
+                <!--     <i class="material-icons md-48" id="face">face</i>-->
+                <!--     <x-nav-link :href="url('foodlist')" :active="request()->is('foodlist')">-->
+                <!--        {{ __('食事登録') }}-->
+                <!--    </x-nav-link>-->
+                <!--</div>-->
             </div>
 
             <!-- Settings Dropdown -->

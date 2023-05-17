@@ -70,8 +70,8 @@
   <tbody>
     @foreach($foods as $food)
     <tr>
-      <td>{{ \Carbon\Carbon::parse($temperature->created_at)->format('H:i') }}</td>
-      <td>主食（ごはん）は{{ $food->staple_food }}、副食（おかず）は{{ $food->side_dish }}でした。</td>
+      <td>{{ \Carbon\Carbon::parse($food->created_at)->format('H:i') }}</td>
+      <td>主食（ごはん）は{{ $food->staple_food }}割、副食（おかず）は{{ $food->side_dish }}割でした。</td>
       
       <!--<td>薬の服用は{{ $food->medicine == 'yes' ? 'あり' : 'なし' }}。</td>-->
     </tr>
@@ -89,7 +89,7 @@
   <tbody>
     @foreach($toilets as $toilet)
     <tr>
-      <td>{{ \Carbon\Carbon::parse($temperature->created_at)->format('H:i') }}</td>
+      <td>{{ \Carbon\Carbon::parse($toilet->created_at)->format('H:i') }}</td>
       <td>尿　{{ $toilet->urine_one }}　便　{{ $toilet->ben_two }}</td>
     </tr>
     @endforeach
