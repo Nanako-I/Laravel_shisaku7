@@ -119,9 +119,9 @@
   </div>
   <div style="display: flex; align-items: center; margin-left: auto; margin-right: auto; max-width: 300px;">
     <span class="text-gray-400 text-6xl" onclick="changeColor(this, 'ben_three')">
-      <i class="material-icons md-48" id="ben_three_input">check_box</i>
+      <i class="material-icons md-48" id="ben_three">check_box</i>
     </span>
-    <input name="ben_three" type="text" id="ben_three" class="w-300 h-10px flex-shrink-0 break-words" placeholder="付着あり">
+    <input name="ben_three" type="text" id="ben_three_input" class="w-300 h-10px flex-shrink-0 break-words" placeholder="付着あり">
   </div>
     
 
@@ -185,6 +185,47 @@ urineOneIcon.addEventListener('click', () => {
   urineOneIcon.classList.add('text-yellow-400');
 });
 
+ const urineTwoIcon = document.querySelector('#urine_two');
+
+// add a click event listener to the icon
+urineTwoIcon.addEventListener('click', () => {
+  // update the input value
+  const urineTwoInput = document.querySelector('#urine_two_input');
+  urineTwoInput.value = 'おむつ';
+
+  // change the icon color
+  //urineOneIcon.classList.replace('text-gray-400', 'text-yellow-400');
+  urineTwoIcon.classList.remove('text-gray-400');
+  urineTwoIcon.classList.add('text-yellow-400');
+});
+
+const urineThreeIcon = document.querySelector('#urine_three');
+
+// add a click event listener to the icon
+urineThreeIcon.addEventListener('click', () => {
+  // update the input value
+  const urineThreeInput = document.querySelector('#urine_three_input');
+  urineThreeInput.value = '尿漏れ';
+
+  // change the icon color
+  //urineOneIcon.classList.replace('text-gray-400', 'text-yellow-400');
+  urineThreeIcon.classList.remove('text-gray-400');
+  urineThreeIcon.classList.add('text-yellow-400');
+});
+
+const benOneIcon = document.querySelector('#ben_one');
+
+// add a click event listener to the icon
+benOneIcon.addEventListener('click', () => {
+  // update the input value
+  const benOneInput = document.querySelector('#ben_one_input');
+  benOneInput.value = 'トイレ';
+
+  // change the icon color
+  //benTwoIcon.classList.replace('text-gray-400', 'text-yellow-400');
+  benOneIcon.classList.remove('text-gray-400');
+  benOneIcon.classList.add('text-yellow-400');
+});
 
  const benTwoIcon = document.querySelector('#ben_two');
 
@@ -198,6 +239,20 @@ benTwoIcon.addEventListener('click', () => {
   //benTwoIcon.classList.replace('text-gray-400', 'text-yellow-400');
   benTwoIcon.classList.remove('text-gray-400');
   benTwoIcon.classList.add('text-yellow-400');
+});
+
+ const benThreeIcon = document.querySelector('#ben_three');
+
+// add a click event listener to the icon
+benThreeIcon.addEventListener('click', () => {
+  // update the input value
+  const benThreeInput = document.querySelector('#ben_three_input');
+  benThreeInput.value = '付着あり';
+
+  // change the icon color
+  //benTwoIcon.classList.replace('text-gray-400', 'text-yellow-400');
+  benThreeIcon.classList.remove('text-gray-400');
+  benThreeIcon.classList.add('text-yellow-400');
 });
 
 // 尿の色↓
